@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>American Dream — Restoring the Dream, One Block at a Time</title>
+    <meta
+      name="description"
+      content="A patriotic Solana initiative powering the Main Street comeback. Built for the homeowners, the hustlers, and the believers."
+    />
+    <meta name="keywords" content="American Dream, Solana, housing affordability, Main Street, patriotic crypto" />
+    <meta property="og:title" content="American Dream" />
+    <meta property="og:description" content="A patriotic Solana movement for Main Street. Restoring the American Dream, one block at a time." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/png" href="assets/logo.png" />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Ubuntu:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Animated patriotic background -->
+    <div class="bg-root" aria-hidden="true">
+      <div class="orb orb-red"></div>
+      <div class="orb orb-blue"></div>
+    </div>
+
+
+    <!-- Navbar -->
+    <header class="nav">
+      <div class="nav-inner">
+        <a href="#top" class="nav-brand">
+          <span class="brand-mark" aria-hidden="true">
+            <img src="assets/logo.png" alt="American Dream Logo" />
+          </span>
+          <span class="brand-text">
+            <span class="brand-line-1">American Dream</span>
+          </span>
+        </a>
+
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#how">How to Buy</a>
+          <a href="#chart">Live Chart</a>
+          <a href="#index">Dream Index</a>
+          <a href="#tokenomics">Tokenomics</a>
+        </nav>
+
+        <a
+          class="cta-primary nav-cta"
+          href="#how"
+          aria-label="Buy DREAM"
+        >
+          Buy $DREAM
+        </a>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-panel glass-panel">
+
+          <h1 class="hero-title hero-anim hero-anim-fade-up hero-anim-delay-2">
+            <span class="title-blue">Restoring the</span>
+            <span class="title-red">American&nbsp;Dream</span>
+            <span class="title-sub">Ownership for a new generation.</span>
+          </h1>
+
+          <p class="hero-sub hero-anim hero-anim-fade-up hero-anim-delay-3">
+            For decades, regular people have been priced out of their own homes.
+            Now we're flipping the narrative and giving ownership back to the
+            people. This is a community and a revolution against the
+            corporations that have made even a home impossible to afford.
+          </p>
+
+          <div class="hero-ca hero-anim hero-anim-scale hero-anim-delay-4">
+            <span class="ca-label">Contract Address (Solana)</span>
+            <div class="ca-row">
+              <code id="ca-text" class="ca-text">DREAMcoinLaunchingSoonReplaceWithRealCA1111</code>
+              <button
+                class="ca-copy"
+                id="ca-copy-btn"
+                type="button"
+                aria-label="Copy contract address"
+              >
+                <span class="ca-copy-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                </span>
+                <span class="ca-copy-label">Copy</span>
+              </button>
+            </div>
+            <span class="ca-note">Launch CA goes live at fair-launch. No presales. No insiders.</span>
+          </div>
+
+          <div class="hero-cta hero-anim hero-anim-fade-up hero-anim-delay-5">
+            <a class="cta-primary" href="#how">
+              <span class="cta-shine"></span>
+              Buy $DREAM Now
+            </a>
+            <a class="cta-secondary" href="#chart">View Live Chart</a>
+            <a class="cta-ghost" href="#index">The Dream Index ↗</a>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- HOW TO BUY -->
+      <section id="how" class="section section-blue">
+        <div class="section-head">
+          <span class="eyebrow">★ The Onboarding ★</span>
+          <h2>How to Join the Dream</h2>
+          <p>Four steps. That's all it takes.</p>
+        </div>
+
+        <div class="how-grid">
+          <article class="how-card glass-panel">
+            <span class="how-number">01</span>
+            <h3>Get a Phantom Wallet</h3>
+            <p>
+              Download Phantom, the most trusted Solana wallet. ApplePay and
+              card on-ramps supported. Takes 60 seconds.
+            </p>
+            <a class="how-link" href="https://phantom.app" target="_blank" rel="noopener">
+              phantom.app ↗
+            </a>
+          </article>
+
+          <article class="how-card glass-panel">
+            <span class="how-number">02</span>
+            <h3>Fund with SOL</h3>
+            <p>
+              Buy SOL directly in Phantom with card or transfer from Coinbase,
+              Kraken, or Robinhood. Keep a little for gas.
+            </p>
+            <a class="how-link" href="https://www.coinbase.com/price/solana" target="_blank" rel="noopener">
+              Where to get SOL ↗
+            </a>
+          </article>
+
+          <article class="how-card glass-panel">
+            <span class="how-number">03</span>
+            <h3>Swap SOL → $DREAM</h3>
+            <p>
+              Paste the official $DREAM contract address into Jupiter for
+              best-in-class routing. Confirm. Done.
+            </p>
+            <a class="how-link" href="https://jup.ag" target="_blank" rel="noopener">
+              Swap on Jupiter ↗
+            </a>
+          </article>
+
+          <article class="how-card glass-panel">
+            <span class="how-number">04</span>
+            <h3>Own the Future</h3>
+            <p>
+              Participate in the ownership economy. Track the Dream Index, join
+              the townhall, and help us flip the narrative on Wall Street.
+            </p>
+            <a class="how-link" href="#index">Open Dream Index ↓</a>
+          </article>
+        </div>
+      </section>
+
+      <!-- LIVE CHART (mock) -->
+      <section id="chart" class="section">
+        <div class="section-head">
+          <span class="eyebrow">★ Market Pulse ★</span>
+          <h2>Price &amp; Liquidity</h2>
+        </div>
+
+        <div class="chart-card glass-panel">
+          <div class="chart-head">
+            <div class="chart-symbol">
+              <span class="dot-live"></span>
+              <strong>TOKEN</strong>
+              <span class="chart-pair">/ SOL · Solana</span>
+            </div>
+            <div class="chart-resolutions" role="tablist" aria-label="Chart resolution">
+              <button class="res" type="button">5m</button>
+              <button class="res is-active" type="button">1H</button>
+              <button class="res" type="button">4H</button>
+              <button class="res" type="button">1D</button>
+              <button class="res" type="button">1W</button>
+            </div>
+          </div>
+
+          <div class="chart-stats">
+            <div class="stat">
+              <span class="stat-label">Price</span>
+              <span class="stat-value" id="stat-price">$0.000—</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">24h Change</span>
+              <span class="stat-value stat-green">+—%</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">24h Volume</span>
+              <span class="stat-value">$—</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Holders</span>
+              <span class="stat-value">— wallets</span>
+            </div>
+          </div>
+
+          <div class="chart-canvas-wrap">
+            <svg
+              class="chart-canvas"
+              viewBox="0 0 800 280"
+              preserveAspectRatio="none"
+              role="img"
+              aria-label="Mock price chart preview"
+            >
+              <defs>
+                <linearGradient id="area-g" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#0066FF" stop-opacity="0.25" />
+                  <stop offset="100%" stop-color="#0066FF" stop-opacity="0" />
+                </linearGradient>
+                <pattern id="chart-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                  <path d="M40 0H0V40" fill="none" stroke="rgba(10, 26, 71, 0.06)" stroke-width="1" />
+                </pattern>
+              </defs>
+
+              <rect width="800" height="280" fill="url(#chart-grid)" />
+
+              <path
+                id="chart-area"
+                d="M0,200 L40,190 L80,205 L120,170 L160,180 L200,150 L240,160 L280,130 L320,145 L360,110 L400,120 L440,90 L480,100 L520,70 L560,85 L600,55 L640,70 L680,40 L720,55 L760,25 L800,40 L800,280 L0,280 Z"
+                fill="url(#area-g)"
+              />
+              <path
+                id="chart-line"
+                d="M0,200 L40,190 L80,205 L120,170 L160,180 L200,150 L240,160 L280,130 L320,145 L360,110 L400,120 L440,90 L480,100 L520,70 L560,85 L600,55 L640,70 L680,40 L720,55 L760,25 L800,40"
+                fill="none"
+                stroke="#0066FF"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <circle cx="800" cy="40" r="5" fill="#fff" stroke="#FF3B3F" stroke-width="2">
+                <animate attributeName="r" values="5;9;5" dur="1.6s" repeatCount="indefinite" />
+                <animate attributeName="opacity" values="1;0.4;1" dur="1.6s" repeatCount="indefinite" />
+              </circle>
+            </svg>
+
+            <div class="chart-veil">
+              <div class="chart-veil-stamp">
+                <span class="veil-eyebrow">★ Pre-Launch Preview ★</span>
+                <strong>Live data unlocks at fair-launch.</strong>
+                <a class="cta-primary cta-sm" href="#how">
+                  <span class="cta-shine"></span>
+                  Be Ready for Day 1
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="chart-foot">
+            <div class="chart-foot-cta">
+              <a class="cta-secondary cta-sm" href="https://jup.ag" target="_blank" rel="noopener">Swap on Jupiter</a>
+              <a class="cta-ghost cta-sm" href="https://dexscreener.com" target="_blank" rel="noopener">Open Dexscreener ↗</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DREAM INDEX -->
+      <section id="index" class="section section-red">
+        <div class="section-head">
+          <span class="eyebrow">★ The Mission ★</span>
+          <h2>The American Dream Index</h2>
+          <p>
+            For decades, Wall Street bought up America while regular people got
+            priced out. $DREAM flips that narrative by turning the housing
+            crisis and America first finance into a cultural onchain asset.
+          </p>
+        </div>
+
+        <div class="index-grid">
+          <article class="index-hero glass-panel">
+            <span class="index-eyebrow">Affordability Score · Q1 2026</span>
+            <div class="gauge">
+              <svg viewBox="0 0 200 120" class="gauge-svg" aria-hidden="true">
+                <path d="M20,110 A80,80 0 0 1 180,110" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="14" stroke-linecap="butt" />
+                <path id="gauge-arc" d="M20,110 A80,80 0 0 1 180,110" fill="none" stroke="#FF3B3F" stroke-width="14" stroke-linecap="butt" stroke-dasharray="251" stroke-dashoffset="180" />
+                <circle id="gauge-needle" cx="100" cy="110" r="6" fill="#fff" />
+              </svg>
+              <div class="gauge-value">
+                <span class="gauge-num" id="gauge-num">28</span><span class="gauge-of">/100</span>
+              </div>
+            </div>
+            <p class="index-caption">
+              The dream is on life support. Median U.S. home now costs
+              <strong>7.4x</strong> the median household income — the worst
+              ratio since records began.
+            </p>
+          </article>
+
+          <article class="index-comparison glass-panel">
+            <div class="comparison-head">
+              <div>
+                <span class="index-eyebrow">The Great Divergence · 1970 → 2026</span>
+                <h3 class="comparison-title">Housing Prices vs. Household Income</h3>
+              </div>
+              <div class="comparison-legend">
+                <span class="legend-item"><span class="legend-dot legend-dot-red"></span>Median Home Price</span>
+                <span class="legend-item"><span class="legend-dot legend-dot-blue"></span>Median Household Income</span>
+              </div>
+            </div>
+
+            <div class="comparison-graph" id="divergence-chart">
+              <svg viewBox="0 0 800 320" class="comp-svg" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="house-g" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#FF3B3F" stop-opacity="0.25" />
+                    <stop offset="100%" stop-color="#FF3B3F" stop-opacity="0" />
+                  </linearGradient>
+                  <linearGradient id="income-g" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#0066FF" stop-opacity="0.18" />
+                    <stop offset="100%" stop-color="#0066FF" stop-opacity="0" />
+                  </linearGradient>
+                </defs>
+
+                <g id="chart-grid-lines"></g>
+                <g id="chart-y-labels"></g>
+                <g id="chart-x-labels"></g>
+
+                <path id="income-area" fill="url(#income-g)" />
+                <path id="house-area" fill="url(#house-g)" />
+                <path id="income-line" fill="none" stroke="#0066FF" stroke-width="2.5" stroke-linejoin="round" />
+                <path id="house-line" fill="none" stroke="#FF3B3F" stroke-width="3" stroke-linejoin="round" />
+
+                <line id="hover-line" x1="0" y1="20" x2="0" y2="280" stroke="rgba(0,0,0,0.2)" stroke-width="1" stroke-dasharray="3,3" style="opacity:0" />
+                <circle id="hover-house-dot" r="6" fill="#fff" stroke="#FF3B3F" stroke-width="3" style="opacity:0" />
+                <circle id="hover-income-dot" r="6" fill="#fff" stroke="#0066FF" stroke-width="3" style="opacity:0" />
+              </svg>
+              <div id="chart-tooltip" class="chart-tooltip">
+                <div class="tooltip-year">—</div>
+                <div class="tooltip-row">
+                  <span class="tt-dot tt-dot-red"></span>
+                  <span class="tt-label">Home</span>
+                  <strong class="tt-house">—</strong>
+                </div>
+                <div class="tooltip-row">
+                  <span class="tt-dot tt-dot-blue"></span>
+                  <span class="tt-label">Income</span>
+                  <strong class="tt-income">—</strong>
+                </div>
+                <div class="tooltip-ratio">
+                  <span>Price ÷ Income</span>
+                  <strong class="tt-ratio">—</strong>
+                </div>
+              </div>
+            </div>
+
+            <p class="index-caption" style="margin-top: 1.5rem;">
+              In 1970, a median home cost <strong>~2.4×</strong> the median household income. 
+              Today, it costs over <strong>5.5×</strong> — and in many cities, more than 10×.
+              <br /><small style="color: var(--text-light); font-size: 0.7rem;">Sources: U.S. Census Bureau, FRED, illustrative composites.</small>
+            </p>
+          </article>
+
+          <article class="index-stat glass-panel">
+            <span class="stat-eyebrow">Median Starter Home</span>
+            <strong class="stat-big">$348,400</strong>
+            <span class="stat-sub stat-red">+213% since 2000</span>
+            <span class="stat-foot">Source: FHFA composite, illustrative</span>
+          </article>
+
+          <article class="index-stat glass-panel">
+            <span class="stat-eyebrow">Years to Save 20% Down</span>
+            <strong class="stat-big">11.6 yrs</strong>
+            <span class="stat-sub stat-red">+5.2 yrs vs. 1990</span>
+            <span class="stat-foot">At median wage, no debt, illustrative</span>
+          </article>
+
+          <article class="index-stat glass-panel">
+            <span class="stat-eyebrow">Homeownership · Under 35</span>
+            <strong class="stat-big">38.5%</strong>
+            <span class="stat-sub stat-red">−12 pts vs. 1980</span>
+            <span class="stat-foot">Source: U.S. Census Bureau</span>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- TOKENOMICS -->
+      <section id="tokenomics" class="section">
+        <div class="section-head">
+          <span class="eyebrow">★ Tokenomics ★</span>
+          <h2>The Economic Foundation</h2>
+          <p>Transparent. Immutable. For the people.</p>
+        </div>
+
+        <div class="tokenomics-grid">
+          <div class="token-card glass-panel">
+            <span class="token-eyebrow">Total Supply</span>
+            <strong class="token-big">1,000,000,000</strong>
+            <span class="token-sub">Fixed forever</span>
+          </div>
+          <div class="token-card glass-panel">
+            <span class="token-eyebrow">Liquidity</span>
+            <strong class="token-big">100%</strong>
+            <span class="token-sub">Burned · locked forever</span>
+          </div>
+
+          <div class="token-card token-promise glass-panel">
+            <h3>The American Dream Promise</h3>
+            <ul class="promise-list">
+              <li><span class="check">★</span> Renounced mint authority</li>
+              <li><span class="check">★</span> Renounced freeze authority</li>
+              <li><span class="check">★</span> Liquidity pool burned</li>
+              <li><span class="check">★</span> Smart contract verified on-chain</li>
+              <li><span class="check">★</span> Community treasury multisig</li>
+              <li><span class="check">★</span> Fair launch · no presale</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- THE RESERVE -->
+      <section id="reserve" class="section section-red">
+        <div class="section-head">
+          <span class="eyebrow">★ The Reserve ★</span>
+          <h2>2% of Every Trade. For the People.</h2>
+          <p>
+            A small piece of every buy and sell is automatically routed to a
+            public, on-chain wallet — The Reserve. No team. No insiders. No
+            hidden hands. Every dollar that flows in is visible to anyone, at
+            any time, forever.
+          </p>
+        </div>
+
+        <div class="reserve-grid">
+          <article class="reserve-main glass-panel">
+            <div class="reserve-balance">
+              <span class="reserve-balance-label">Current Reserve Balance</span>
+              <strong class="reserve-balance-value">$1,353</strong>
+              <span class="reserve-balance-sub">Growing with every trade</span>
+            </div>
+
+            <div class="reserve-header">
+              <span class="reserve-eyebrow">Trading Fee Allocation</span>
+              <div class="reserve-pct">
+                <strong>2%</strong>
+                <span>of all trades</span>
+              </div>
+            </div>
+
+            <div class="reserve-flow">
+              <div class="flow-node">
+                <span class="flow-label">Every Buy / Sell</span>
+                <span class="flow-sub">on-chain trade</span>
+              </div>
+              <div class="flow-arrow" aria-hidden="true">→</div>
+              <div class="flow-node flow-node-accent">
+                <span class="flow-label">2% Fee</span>
+                <span class="flow-sub">automatic</span>
+              </div>
+              <div class="flow-arrow" aria-hidden="true">→</div>
+              <div class="flow-node flow-node-final">
+                <span class="flow-label">The Reserve</span>
+                <span class="flow-sub">public wallet</span>
+              </div>
+            </div>
+
+            <div class="reserve-wallet">
+              <span class="reserve-wallet-label">Reserve Wallet (Solana)</span>
+              <div class="ca-row">
+                <code id="reserve-text" class="ca-text">ReserveWalletAddressGoesHereOnLaunch11111111</code>
+                <button
+                  class="ca-copy"
+                  id="reserve-copy-btn"
+                  type="button"
+                  aria-label="Copy reserve wallet address"
+                >
+                  <span class="ca-copy-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </span>
+                  <span class="ca-copy-label">Copy</span>
+                </button>
+              </div>
+              <span class="ca-note">
+                Address goes live at fair-launch. Verify on Solscan before
+                sending anything.
+              </span>
+            </div>
+          </article>
+
+          <article class="reserve-side glass-panel">
+            <div class="reserve-side-head">
+              <span class="reserve-eyebrow">Why a Reserve?</span>
+              <h3 class="reserve-side-title">Funding the Movement</h3>
+            </div>
+
+            <ul class="reserve-list">
+              <li>
+                <span class="check">★</span>
+                <div>
+                  <strong>Community War Chest</strong>
+                  <p>Funds marketing, listings, and onchain initiatives.</p>
+                </div>
+              </li>
+              <li>
+                <span class="check">★</span>
+                <div>
+                  <strong>Always Transparent</strong>
+                  <p>The wallet is public. Every inflow, every outflow, viewable forever.</p>
+                </div>
+              </li>
+              <li>
+                <span class="check">★</span>
+                <div>
+                  <strong>Aligned with Holders</strong>
+                  <p>The bigger we grow, the bigger the reserve.</p>
+                </div>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- FINAL CTA -->
+      <section class="section section-blue final-cta">
+        <div class="final-card glass-panel">
+          <h2>The Dream isn't dead.</h2>
+          <p>It just needed a chain to live on.</p>
+          <div class="final-cta-row">
+            <a class="cta-primary" href="#how">
+              <span class="cta-shine"></span>
+              Buy $DREAM
+            </a>
+            <a class="cta-secondary" href="#index">See the Dream Index</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="brand-mark" aria-hidden="true">
+            <img src="assets/logo.png" alt="American Dream Logo" />
+          </span>
+          <div>
+            <strong>American Dream</strong>
+            <small>Solana · For the people, by the people.</small>
+          </div>
+        </div>
+
+        <nav class="footer-links" aria-label="Footer">
+          <a href="#how">How to Buy</a>
+          <a href="#chart">Chart</a>
+          <a href="#index">Dream Index</a>
+          <a href="#tokenomics">Tokenomics</a>
+        </nav>
+
+        <div class="footer-social">
+          <a href="#" aria-label="X / Twitter">𝕏</a>
+          <a href="#" aria-label="Dexscreener">📈</a>
+        </div>
+      </div>
+
+      <p class="footer-disclaimer">
+        ⚠️ DISCLAIMER: $DREAM is a community memecoin for entertainment
+        purposes only. Not affiliated with, endorsed by, or representative
+        of the United States Government, the U.S. Treasury, or any
+        government entity. Crypto is volatile — never invest more than you
+        can afford to lose.
+      </p>
+    </footer>
+
+    <!-- Copy toast -->
+    <div id="copy-toast" class="copy-toast" role="status" aria-live="polite">
+      Contract address copied ★
+    </div>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
