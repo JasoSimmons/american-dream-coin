@@ -1333,8 +1333,16 @@ img, svg { display: block; max-width: 100%; }
 /* ---------- FINAL CTA ---------- */
 .final-cta { padding-top: 1rem; padding-bottom: 6rem; }
 .final-card {
-  padding: 4rem 2rem;
+  position: relative;
+  padding: 5rem 2rem;
   text-align: center;
+  overflow: hidden;
+  background-image:
+    linear-gradient(rgba(10, 9, 8, 0.62), rgba(10, 9, 8, 0.78)),
+    url('assets/flag-bg.png');
+  background-size: cover, cover;
+  background-position: center, center;
+  border: 1px solid rgba(231, 172, 8, 0.3);
 }
 .final-card h2 {
   font-family: var(--font-display);
