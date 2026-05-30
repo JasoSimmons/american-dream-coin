@@ -462,8 +462,8 @@ img, svg { display: block; max-width: 100%; }
 .badge-text small { font-size: 0.75rem; color: var(--text-muted); }
 
 /* ---------- Sections ---------- */
-.section { max-width: var(--container); margin: 0 auto; padding: 6rem 1.25rem; }
-.section-head { text-align: center; margin-bottom: 4rem; }
+.section { max-width: var(--container); margin: 0 auto; padding: 5rem 1.25rem; }
+.section-head { text-align: center; margin-bottom: 3.5rem; }
 .eyebrow {
   font-family: var(--font-data);
   font-size: 0.7rem;
@@ -490,8 +490,8 @@ img, svg { display: block; max-width: 100%; }
 .section-red {
   position: relative;
   isolation: isolate;
-  margin-top: 4rem;
-  margin-bottom: 4rem;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 .section-blue::before,
 .section-red::before {
@@ -580,10 +580,6 @@ img, svg { display: block; max-width: 100%; }
 .how-link { font-weight: 700; color: var(--gold); margin-top: auto; border-top: 1px solid rgba(231, 172, 8, 0.15); padding-top: 1rem; }
 
 /* ---------- CHART ---------- */
-#how { padding-bottom: 3rem; margin-bottom: 1.5rem; }
-#chart { padding-top: 0.5rem; }
-#chart .section-head { margin-bottom: 2.5rem; }
-
 .chart-card {
   padding: 1.75rem;
   display: flex;
