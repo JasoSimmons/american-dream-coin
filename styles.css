@@ -111,6 +111,19 @@ img, svg { display: block; max-width: 100%; }
     );
 }
 
+/* Ambient golden glow filter */
+.bg-root::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 45% at 50% 12%, rgba(231, 172, 8, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 15% 70%, rgba(254, 237, 139, 0.10) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 85% 85%, rgba(231, 172, 8, 0.10) 0%, transparent 55%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
 /* Subtle film-grain for depth */
 .bg-root::after {
   content: "";
