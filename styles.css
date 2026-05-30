@@ -1468,16 +1468,17 @@ img, svg { display: block; max-width: 100%; }
   border-color: var(--gold);
 }
 
-.footer-signature {
+.footer-brand-text {
   display: flex;
-  justify-content: flex-start;
-  max-width: var(--container);
-  margin: 0.5rem auto 0;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.3;
 }
-.footer-signature img {
-  width: 70px;
+.footer-signature-img {
+  width: 90px;
   height: auto;
   opacity: 0.85;
+  margin-top: 2px;
 }
 
 .footer-disclaimer {
