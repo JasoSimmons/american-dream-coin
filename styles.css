@@ -1374,9 +1374,10 @@ img, svg { display: block; max-width: 100%; }
   animation: dreamScroll 45s linear infinite;
 }
 .dream-track img {
-  width: 280px;
-  height: 180px;
+  width: 240px;
+  height: 240px;
   object-fit: cover;
+  object-position: center;
   border-radius: var(--radius-md);
   border: 1px solid rgba(231, 172, 8, 0.25);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
