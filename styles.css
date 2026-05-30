@@ -1363,7 +1363,7 @@ img, svg { display: block; max-width: 100%; }
 
 .dream-marquee {
   overflow: hidden;
-  margin-bottom: 2.5rem;
+  margin-top: 3rem;
   -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
   mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
 }
