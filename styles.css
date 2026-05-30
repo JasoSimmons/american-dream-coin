@@ -578,7 +578,8 @@ img, svg { display: block; max-width: 100%; }
 .how-link { font-weight: 700; color: var(--gold); margin-top: auto; border-top: 1px solid rgba(231, 172, 8, 0.15); padding-top: 1rem; }
 
 /* ---------- CHART ---------- */
-#chart { padding-top: 1.5rem; }
+#how { padding-bottom: 3rem; margin-bottom: 1.5rem; }
+#chart { padding-top: 0.5rem; }
 #chart .section-head { margin-bottom: 2.5rem; }
 
 .chart-card {
