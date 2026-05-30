@@ -286,29 +286,33 @@
     chartWrap.addEventListener("touchend", hideHover);
   }
 
-  /* -------------------- 7c. Hero background dissolve on scroll -------------------- */
+  /* -------------------- 7c. Hero dissolve + transparent navbar on scroll -------------------- */
   const heroBg = document.querySelector(".hero-bg");
   const heroSection = document.querySelector(".hero");
-  if (heroBg && heroSection) {
-    let dissolveQueued = false;
-    const updateDissolve = () => {
-      dissolveQueued = false;
+  const nav = document.querySelector(".nav");
+  let scrollQueued = false;
+  const onScroll = () => {
+    scrollQueued = false;
+    if (heroBg && heroSection) {
       const heroHeight = heroSection.offsetHeight || window.innerHeight;
       const progress = Math.min(Math.max(window.scrollY / (heroHeight * 0.85), 0), 1);
       heroBg.style.opacity = String(1 - progress);
-    };
-    window.addEventListener(
-      "scroll",
-      () => {
-        if (!dissolveQueued) {
-          dissolveQueued = true;
-          requestAnimationFrame(updateDissolve);
-        }
-      },
-      { passive: true }
-    );
-    updateDissolve();
-  }
+    }
+    if (nav) {
+      nav.classList.toggle("is-scrolled", window.scrollY > 40);
+    }
+  };
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!scrollQueued) {
+        scrollQueued = true;
+        requestAnimationFrame(onScroll);
+      }
+    },
+    { passive: true }
+  );
+  onScroll();
 
   /* -------------------- 8. Smooth scroll polish -------------------- */
   document.querySelectorAll('a[href^="#"]').forEach((a) => {
