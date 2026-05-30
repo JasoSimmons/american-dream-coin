@@ -134,7 +134,26 @@ img, svg { display: block; max-width: 100%; }
     0 10px 15px -3px rgba(0, 0, 0, 0.25),
     inset 0 0 0 1px rgba(229, 160, 13, 0.08);
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  overflow: hidden;
 }
+
+/* Subtle texture overlay for a less "perfect" digital feel */
+.glass-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.04;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  z-index: 0;
+}
+
+.glass-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
 .glass-panel::after {
   content: "";
   position: absolute;
@@ -146,6 +165,7 @@ img, svg { display: block; max-width: 100%; }
   background-size: 100% 4px;
   pointer-events: none;
   opacity: 0.5;
+  z-index: 0;
 }
 .glass-panel:hover {
   box-shadow:
@@ -707,12 +727,92 @@ img, svg { display: block; max-width: 100%; }
 
 .cta-sm { padding: 0.55rem 1.1rem; font-size: 0.8rem; }
 
-/* ---------- DREAM INDEX ---------- */
-.index-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+/* ---------- VS Table ---------- */
+.index-vs {
+  grid-column: span 1;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
 }
+
+.vs-head {
+  margin-bottom: 2rem;
+}
+
+.vs-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--cream);
+  margin-top: 0.5rem;
+}
+
+.vs-table {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.vs-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.9rem;
+  color: var(--cream-dim);
+}
+
+.vs-row:last-child {
+  border-bottom: none;
+}
+
+.vs-header {
+  font-family: var(--font-stamp);
+  font-weight: 700;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid rgba(229, 160, 13, 0.2);
+  padding-bottom: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.vs-divider {
+  font-family: var(--font-stamp);
+  font-size: 0.7rem;
+  color: var(--cream-faint);
+  padding: 0 1rem;
+}
+
+.vs-row span:first-child {
+  flex: 1;
+  text-align: left;
+}
+
+.vs-row span:last-child {
+  flex: 1;
+  text-align: right;
+  color: var(--gold-bright);
+}
+
+.vs-header span:last-child {
+  color: var(--gold);
+}
+
+@media (max-width: 1024px) {
+  .index-vs {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .index-vs {
+    grid-column: span 1;
+  }
+}
+
+/* ---------- Index Hero ---------- */
 .index-hero {
   grid-column: 1 / -1;
   max-width: 720px;
