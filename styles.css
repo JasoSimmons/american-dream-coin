@@ -277,6 +277,8 @@ img, svg { display: block; max-width: 100%; }
   z-index: 0;
   will-change: opacity;
   transition: opacity 0.15s linear;
+  -webkit-mask-image: linear-gradient(to bottom, #000 45%, rgba(0, 0, 0, 0.5) 75%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 45%, rgba(0, 0, 0, 0.5) 75%, transparent 100%);
 }
 
 .hero::before {
