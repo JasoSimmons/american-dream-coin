@@ -96,10 +96,16 @@ img, svg { display: block; max-width: 100%; }
   pointer-events: none;
   background-color: var(--ink);
   background-image:
+    radial-gradient(
+      ellipse 90% 70% at 50% 0%,
+      rgba(231, 172, 8, 0.10) 0%,
+      rgba(36, 31, 28, 0.6) 35%,
+      transparent 70%
+    ),
     linear-gradient(
       180deg,
       #241F1C 0%,
-      #1C1917 15%,
+      #1F1B19 40%,
       #1C1917 100%
     );
 }
