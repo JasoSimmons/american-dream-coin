@@ -1051,11 +1051,13 @@ img, svg { display: block; max-width: 100%; }
   align-items: center;
   justify-content: center;
   width: 24px; height: 24px;
-  border-radius: var(--radius-sm);
-  background: var(--gold);
-  color: var(--ink);
-  font-size: 0.8rem;
   flex-shrink: 0;
+  font-size: 0;
+  color: transparent;
+  background-image: url('assets/star.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 @media (max-width: 980px) {
