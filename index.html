@@ -65,53 +65,58 @@
     <main id="top">
       <!-- HERO -->
       <section class="hero">
-        <div class="hero-panel glass-panel">
+        <div class="hero-grid-main">
+          <div class="hero-panel glass-panel">
+            <h1 class="hero-title hero-anim hero-anim-fade-up hero-anim-delay-2">
+              <span class="title-blue">Restoring the</span>
+              <span class="title-red">American&nbsp;Dream</span>
+              <span class="title-sub">Ownership for a new generation.</span>
+            </h1>
 
-          <h1 class="hero-title hero-anim hero-anim-fade-up hero-anim-delay-2">
-            <span class="title-blue">Restoring the</span>
-            <span class="title-red">American&nbsp;Dream</span>
-            <span class="title-sub">Ownership for a new generation.</span>
-          </h1>
+            <p class="hero-sub hero-anim hero-anim-fade-up hero-anim-delay-3">
+              For decades, regular people have been priced out of their own homes.
+              Now we're flipping the narrative and giving ownership back to the
+              people. This is a community and a revolution against the
+              corporations that have made owning a home impossible to afford.
+            </p>
 
-          <p class="hero-sub hero-anim hero-anim-fade-up hero-anim-delay-3">
-            For decades, regular people have been priced out of their own homes.
-            Now we're flipping the narrative and giving ownership back to the
-            people. This is a community and a revolution against the
-            corporations that have made owning a home impossible to afford.
-          </p>
+            <div class="hero-ca hero-anim hero-anim-scale hero-anim-delay-4">
+              <span class="ca-label">Contract Address (Solana)</span>
+              <div class="ca-row">
+                <code id="ca-text" class="ca-text">DREAMcoinLaunchingSoonReplaceWithRealCA1111</code>
+                <button
+                  class="ca-copy"
+                  id="ca-copy-btn"
+                  type="button"
+                  aria-label="Copy contract address"
+                >
+                  <span class="ca-copy-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                  </span>
+                  <span class="ca-copy-label">Copy</span>
+                </button>
+              </div>
+            </div>
 
-          <div class="hero-ca hero-anim hero-anim-scale hero-anim-delay-4">
-            <span class="ca-label">Contract Address (Solana)</span>
-            <div class="ca-row">
-              <code id="ca-text" class="ca-text">DREAMcoinLaunchingSoonReplaceWithRealCA1111</code>
-              <button
-                class="ca-copy"
-                id="ca-copy-btn"
-                type="button"
-                aria-label="Copy contract address"
-              >
-                <span class="ca-copy-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                  </svg>
-                </span>
-                <span class="ca-copy-label">Copy</span>
-              </button>
+            <div class="hero-cta hero-anim hero-anim-fade-up hero-anim-delay-5">
+              <a class="cta-primary" href="#how">
+                <span class="cta-shine"></span>
+                Buy $DREAM Now
+              </a>
+              <a class="cta-secondary" href="#chart">View Live Chart</a>
+              <a class="cta-ghost" href="#index">The Dream Index ↗</a>
             </div>
           </div>
 
-          <div class="hero-cta hero-anim hero-anim-fade-up hero-anim-delay-5">
-            <a class="cta-primary" href="#how">
-              <span class="cta-shine"></span>
-              Buy $DREAM Now
-            </a>
-            <a class="cta-secondary" href="#chart">View Live Chart</a>
-            <a class="cta-ghost" href="#index">The Dream Index ↗</a>
+          <div class="hero-visual hero-anim hero-anim-fade-up hero-anim-delay-3">
+            <div class="visual-inner glass-panel">
+              <img src="assets/hero-visual.png" alt="The American Dream" />
+            </div>
           </div>
-
         </div>
-
       </section>
 
       <!-- HOW TO BUY -->
@@ -124,6 +129,9 @@
 
         <div class="how-grid">
           <article class="how-card glass-panel">
+            <div class="how-icon-wrap">
+              <img src="assets/key.png" alt="Key" class="how-icon-img" />
+            </div>
             <span class="how-number">01</span>
             <h3>Get a Phantom Wallet</h3>
             <p>
@@ -288,6 +296,9 @@
 
         <div class="index-grid">
           <article class="index-hero glass-panel">
+            <div class="index-emblem-wrap">
+              <img src="assets/emblem.png" alt="American Dream Emblem" class="index-emblem-img" />
+            </div>
             <span class="index-eyebrow">Affordability Score · Q1 2026</span>
             <div class="gauge">
               <svg viewBox="0 0 200 120" class="gauge-svg" aria-hidden="true">
@@ -414,7 +425,10 @@
           </div>
 
           <div class="token-card token-promise glass-panel">
-            <h3>The American Dream Promise</h3>
+            <div class="promise-head">
+              <img src="assets/compass.png" alt="Compass" class="promise-icon-img" />
+              <h3>The American Dream Promise</h3>
+            </div>
             <ul class="promise-list">
               <li><span class="check">★</span> Renounced mint authority</li>
               <li><span class="check">★</span> Renounced freeze authority</li>
@@ -553,8 +567,9 @@
           <span class="brand-mark" aria-hidden="true">
             <img src="assets/logo.png" alt="American Dream Logo" />
           </span>
-          <div>
+          <div class="footer-brand-text">
             <strong>American Dream</strong>
+            <img src="assets/gold-flag.png" alt="Gold Flag" class="footer-flag-img" />
           </div>
         </div>
 
