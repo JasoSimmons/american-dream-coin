@@ -51,9 +51,9 @@
   --glass-bg:    rgba(20, 17, 10, 0.85);
   --glass-brd:   rgba(231, 172, 8, 0.18);
 
-  --radius-lg:   0px;
-  --radius-md:   0px;
-  --radius-sm:   0px;
+  --radius-lg:   24px;
+  --radius-md:   16px;
+  --radius-sm:   8px;
 
   --container:   1180px;
 
@@ -208,7 +208,7 @@ img, svg { display: block; max-width: 100%; }
   font-weight: 800;
   font-size: 1.05rem;
   color: #000000;
-  border-radius: 0;
+  border-radius: var(--radius-sm);
   background: var(--gold);
   border: 1px solid rgba(254, 237, 139, 0.4);
   box-shadow:
@@ -232,7 +232,7 @@ img, svg { display: block; max-width: 100%; }
   align-items: center;
   justify-content: center;
   padding: 1.1rem 2.2rem;
-  border-radius: 0;
+  border-radius: var(--radius-sm);
   background: transparent;
   color: var(--gold);
   font-weight: 700;
@@ -313,7 +313,7 @@ img, svg { display: block; max-width: 100%; }
   max-width: 580px;
   text-align: left;
   padding: 1.2rem;
-  border-radius: 0;
+  border-radius: var(--radius-md);
   background: rgba(231, 172, 8, 0.04);
   border: 1px dashed rgba(231, 172, 8, 0.25);
 }
@@ -338,9 +338,9 @@ img, svg { display: block; max-width: 100%; }
   font-size: 0.88rem;
   color: var(--gold);
   padding: 0.65rem 0.8rem;
-  background: #12100F; /* Matched to ink-deep */
+  background: var(--ink-deep);
   border: 1px solid rgba(231, 172, 8, 0.2);
-  border-radius: 0;
+  border-radius: var(--radius-sm);
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -354,7 +354,7 @@ img, svg { display: block; max-width: 100%; }
   justify-content: center;
   gap: 0.45rem;
   padding: 0.65rem 1.2rem;
-  border-radius: 0;
+  border-radius: var(--radius-sm);
   border: 2px solid var(--gold);
   background: var(--gold);
   color: var(--ink);
@@ -564,7 +564,7 @@ img, svg { display: block; max-width: 100%; }
   display: inline-flex;
   background: rgba(231, 172, 8, 0.06);
   border: 1px solid rgba(231, 172, 8, 0.18);
-  border-radius: 0;
+  border-radius: var(--radius-sm);
   padding: 4px;
 }
 .res {
@@ -574,7 +574,7 @@ img, svg { display: block; max-width: 100%; }
   color: var(--text-muted);
   font-weight: 700;
   font-size: 0.78rem;
-  border-radius: 0;
+  border-radius: var(--radius-sm);
   cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease;
 }
@@ -808,7 +808,7 @@ img, svg { display: block; max-width: 100%; }
   padding: 0.75rem 0.9rem;
   background: rgba(10, 9, 8, 0.96);
   border: 1px solid rgba(231, 172, 8, 0.35);
-  border-radius: 0;
+  border-radius: var(--radius-sm);
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
   font-family: var(--font-body);
   opacity: 0;
@@ -980,7 +980,7 @@ img, svg { display: block; max-width: 100%; }
 .promise-list li {
   background: rgba(231, 172, 8, 0.04);
   padding: 0.7rem 0.9rem;
-  border-radius: 0;
+  border-radius: var(--radius-sm);
   border: 1px solid rgba(231, 172, 8, 0.18);
   display: flex;
   align-items: center;
@@ -993,7 +993,7 @@ img, svg { display: block; max-width: 100%; }
   align-items: center;
   justify-content: center;
   width: 24px; height: 24px;
-  border-radius: 0;
+  border-radius: var(--radius-sm);
   background: var(--gold);
   color: var(--ink);
   font-size: 0.8rem;
@@ -1095,6 +1095,7 @@ img, svg { display: block; max-width: 100%; }
   padding: 1rem 1.1rem;
   background: rgba(231, 172, 8, 0.04);
   border: 1px solid rgba(231, 172, 8, 0.18);
+  border-radius: var(--radius-sm);
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
@@ -1292,7 +1293,7 @@ img, svg { display: block; max-width: 100%; }
   align-items: center;
   justify-content: center;
   padding: 0.5rem 0.95rem;
-  border-radius: 0;
+  border-radius: var(--radius-sm);
   background: transparent;
   border: 1px solid rgba(231, 172, 8, 0.3);
   color: var(--gold);
@@ -1334,5 +1335,5 @@ img, svg { display: block; max-width: 100%; }
 .hero-anim-delay-5 { animation-delay: 0.5s; }
 .hero-anim-delay-6 { animation-delay: 0.6s; }
 
-.copy-toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--ink); padding: 0.8rem 1.5rem; border-radius: 0; opacity: 0; transition: all 0.3s; z-index: 100; font-weight: 700; letter-spacing: 0.04em; }
+.copy-toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--ink); padding: 0.8rem 1.5rem; border-radius: var(--radius-sm); opacity: 0; transition: all 0.3s; z-index: 100; font-weight: 700; letter-spacing: 0.04em; }
 .copy-toast.is-show { opacity: 1; bottom: 3rem; }
