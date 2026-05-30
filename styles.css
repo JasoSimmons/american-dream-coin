@@ -618,10 +618,10 @@ img, svg { display: block; max-width: 100%; }
   position: absolute;
   inset: 0;
   z-index: -1;
-  background-image: url('assets/goldbar.png');
+  background-image: url('assets/stripes.svg');
   background-repeat: repeat;
-  background-size: 150px auto;
-  opacity: 0.045;
+  background-size: 360px auto;
+  opacity: 0.08;
   pointer-events: none;
 }
 
