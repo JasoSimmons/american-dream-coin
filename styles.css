@@ -204,12 +204,23 @@ img, svg { display: block; max-width: 100%; }
   object-fit: cover;
 }
 
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
 .brand-line-1 { 
   font-family: var(--font-display); 
   font-weight: 800; 
   font-size: 1.2rem; 
   color: var(--gold);
   text-shadow: 0 2px 4px rgba(231, 172, 8, 0.18);
+}
+.brand-signature {
+  width: 120px;
+  height: auto;
+  margin-top: 2px;
+  opacity: 0.9;
 }
 
 .nav-links { display: flex; gap: 1.4rem; margin-right: 1rem; }
