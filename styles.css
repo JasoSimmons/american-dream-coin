@@ -135,21 +135,6 @@ img, svg { display: block; max-width: 100%; }
   mix-blend-mode: overlay;
 }
 
-/* Diagonal wavy flag stripes across the whole screen */
-.bg-stripes {
-  position: absolute;
-  top: -75%;
-  left: -75%;
-  width: 250%;
-  height: 250%;
-  background-image: url('assets/stripes.svg');
-  background-repeat: repeat;
-  background-size: 380px auto;
-  transform: rotate(-22deg);
-  opacity: 0.06;
-  pointer-events: none;
-}
-
 /* Orbs are now disabled — gradient does the heavy lifting like WLFI */
 .orb { display: none; }
 
@@ -624,6 +609,28 @@ img, svg { display: block; max-width: 100%; }
 .how-link { font-weight: 700; color: var(--gold); margin-top: auto; border-top: 1px solid rgba(231, 172, 8, 0.15); padding-top: 1rem; }
 
 /* ---------- CHART ---------- */
+#chart {
+  position: relative;
+  isolation: isolate;
+}
+#chart::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  z-index: -1;
+  background-image: url('assets/stripes.svg');
+  background-repeat: repeat;
+  background-size: 520px auto;
+  opacity: 0.16;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 88%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 88%, transparent 100%);
+  pointer-events: none;
+}
+
 .chart-card {
   padding: 1.75rem;
   display: flex;
@@ -1004,6 +1011,7 @@ img, svg { display: block; max-width: 100%; }
 .gauge-of { color: var(--text-light); font-size: 1.2rem; margin-left: 4px; font-weight: 600; }
 .index-caption { color: var(--text-muted); line-height: 1.6; margin: 0; text-align: center; max-width: 45ch; margin: 0 auto; }
 .index-caption strong { color: var(--gold); }
+.index-source { display: inline-block; margin-top: 0.6rem; color: var(--text-light); font-size: 0.7rem; letter-spacing: 0.02em; }
 
 .index-eyebrow {
   font-family: var(--font-data);
@@ -1126,6 +1134,35 @@ img, svg { display: block; max-width: 100%; }
   background-repeat: no-repeat;
 }
 
+.promise-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+}
+.promise-table th,
+.promise-table td {
+  text-align: left;
+  padding: 0.85rem 0.4rem;
+  border-bottom: 1px solid rgba(231, 172, 8, 0.16);
+}
+.promise-table thead th {
+  color: var(--cream);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-bottom-color: rgba(231, 172, 8, 0.28);
+}
+.promise-table tbody td {
+  font-size: 0.92rem;
+  color: var(--cream-dim);
+}
+.promise-table tbody td:last-child {
+  color: var(--cream);
+}
+.promise-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
 @media (max-width: 980px) {
   .token-promise { grid-column: span 2; }
 }
@@ -1140,7 +1177,7 @@ img, svg { display: block; max-width: 100%; }
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 1.5rem;
-  align-items: stretch;
+  align-items: start;
 }
 .reserve-main {
   padding: 2.5rem;
@@ -1149,11 +1186,10 @@ img, svg { display: block; max-width: 100%; }
   gap: 1.75rem;
 }
 .reserve-side {
-  padding: 2.5rem;
+  padding: 2rem 2rem 2.25rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 1.75rem;
+  gap: 1.25rem;
 }
 .reserve-side-head {
   display: flex;
@@ -1309,15 +1345,16 @@ img, svg { display: block; max-width: 100%; }
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
+  gap: 0.65rem;
 }
 .reserve-list li {
   display: flex;
   align-items: flex-start;
-  gap: 0.9rem;
-  padding: 1rem;
+  gap: 0.75rem;
+  padding: 0.85rem 0.9rem;
   background: rgba(231, 172, 8, 0.04);
   border: 1px solid rgba(231, 172, 8, 0.18);
+  border-radius: var(--radius-sm);
 }
 .reserve-list strong {
   display: block;
@@ -1465,17 +1502,6 @@ img, svg { display: block; max-width: 100%; }
   color: var(--ink);
   transform: translateY(-2px);
   border-color: var(--gold);
-}
-
-.footer-signature {
-  display: flex;
-  justify-content: center;
-  margin: 1.5rem auto 0;
-}
-.footer-signature img {
-  width: 90px;
-  height: auto;
-  opacity: 0.85;
 }
 
 .footer-disclaimer {
