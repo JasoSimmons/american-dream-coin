@@ -502,20 +502,20 @@ img, svg { display: block; max-width: 100%; }
   z-index: -1;
 }
 .section-blue::before {
-  background: var(--ink-deep);
-  background-image:
-    radial-gradient(at 20% 20%, rgba(231, 172, 8, 0.03) 0px, transparent 50%),
-    radial-gradient(at 80% 80%, rgba(115, 61, 18, 0.02) 0px, transparent 50%);
-  border-top: 1px solid rgba(231, 172, 8, 0.10);
-  border-bottom: 1px solid rgba(231, 172, 8, 0.10);
-}
-.section-red::before {
-  background: var(--ink-soft);
+  background: transparent;
   background-image:
     radial-gradient(at 20% 20%, rgba(231, 172, 8, 0.04) 0px, transparent 50%),
     radial-gradient(at 80% 80%, rgba(115, 61, 18, 0.03) 0px, transparent 50%);
-  border-top: 1px solid rgba(231, 172, 8, 0.12);
-  border-bottom: 1px solid rgba(231, 172, 8, 0.12);
+  border-top: 1px solid rgba(231, 172, 8, 0.08);
+  border-bottom: 1px solid rgba(231, 172, 8, 0.08);
+}
+.section-red::before {
+  background: transparent;
+  background-image:
+    radial-gradient(at 20% 20%, rgba(231, 172, 8, 0.05) 0px, transparent 50%),
+    radial-gradient(at 80% 80%, rgba(115, 61, 18, 0.04) 0px, transparent 50%);
+  border-top: 1px solid rgba(231, 172, 8, 0.10);
+  border-bottom: 1px solid rgba(231, 172, 8, 0.10);
 }
 
 /* Subtle gold-fleck pattern overlay on bands */
