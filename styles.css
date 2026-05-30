@@ -1471,10 +1471,10 @@ img, svg { display: block; max-width: 100%; }
   display: flex;
   justify-content: flex-start;
   max-width: var(--container);
-  margin: 2rem auto 0;
+  margin: 0.5rem auto 0;
 }
 .footer-signature img {
-  width: 100px;
+  width: 70px;
   height: auto;
   opacity: 0.85;
 }
