@@ -175,7 +175,7 @@
       line.setAttribute("y1", y);
       line.setAttribute("x2", VB_W - PAD_R);
       line.setAttribute("y2", y);
-      line.setAttribute("stroke", "rgba(229, 160, 13, 0.10)");
+      line.setAttribute("stroke", "rgba(231, 172, 8, 0.08)");
       gridGroup.appendChild(line);
 
       const label = document.createElementNS("http://www.w3.org/2000/svg", "text");

@@ -5,29 +5,29 @@
 
 :root {
   /* Core gold + ink palette — sampled directly from the high-contrast coin logo */
-  --gold:        #E5A00D; /* Rich Amber Gold from logo mid-tones */
-  --gold-bright: #FFD26E; /* Warm highlight from logo glint */
-  --gold-mid:    #C48A0A; /* Deep gold */
-  --gold-deep:   #784B00; /* Bronze shadow from logo bevel */
-  --gold-shadow: #211000; /* Deep burnt umber from logo background */
-  --gold-glow:   rgba(229, 160, 13, 0.35);
+  --gold:        #E7AC08; /* Official WLFI Gold */
+  --gold-bright: #FEED8B; /* Official WLFI Crayola Yellow */
+  --gold-mid:    #B88A06; 
+  --gold-deep:   #733D12; /* Official WLFI Sepia Brown */
+  --gold-shadow: #211000; 
+  --gold-glow:   rgba(231, 172, 8, 0.30);
 
   /* Refined metallic gradient — mirrors the logo's specific beveled shine */
   --gold-gradient: linear-gradient(
     135deg,
     #3E2723 0%,   /* Shadow */
-    #784B00 15%,  /* Bronze */
-    #E5A00D 40%,  /* Amber Gold */
-    #FFD26E 50%,  /* Shine */
-    #E5A00D 60%,  /* Amber Gold */
-    #784B00 85%,  /* Bronze */
+    #733D12 15%,  /* Official WLFI Sepia Brown */
+    #E7AC08 40%,  /* Official WLFI Gold */
+    #FEED8B 50%,  /* Official WLFI Crayola Yellow */
+    #E7AC08 60%,  /* Official WLFI Gold */
+    #733D12 85%,  /* Official WLFI Sepia Brown */
     #3E2723 100%  /* Shadow */
   );
 
-  --ink:         #0A0908;
-  --ink-soft:    #14110A;
-  --ink-deep:    #050403;
-  --ink-glow:    rgba(229, 160, 13, 0.15);
+  --ink:         #1C1917; /* Eerie Black from WLFI brand assets */
+  --ink-soft:    #292524; /* Raisin Black from WLFI brand assets */
+  --ink-deep:    #12100F; /* Darker variant for depth */
+  --ink-glow:    rgba(231, 172, 8, 0.08);
 
   --cream:       #F5F5F5; /* Clean off-white for main text (WLFI style) */
   --cream-dim:   #B0B0B0; /* Muted gray for secondary text */
@@ -49,7 +49,7 @@
   --text-light:  var(--cream-faint);
 
   --glass-bg:    rgba(20, 17, 10, 0.85);
-  --glass-brd:   rgba(229, 160, 13, 0.18);
+  --glass-brd:   rgba(231, 172, 8, 0.18);
 
   --radius-lg:   0px;
   --radius-md:   0px;
@@ -83,11 +83,11 @@ button { font: inherit; cursor: pointer; }
 img, svg { display: block; max-width: 100%; }
 
 ::selection {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(231, 172, 8, 0.2);
   color: #ffffff;
 }
 
-/* ---------- Background (WLFI-style warm top glow on near-black) ---------- */
+/* ---------- Background (Matched to WLFI Eerie Black) ---------- */
 .bg-root {
   position: fixed;
   inset: 0;
@@ -98,10 +98,9 @@ img, svg { display: block; max-width: 100%; }
   background-image:
     linear-gradient(
       180deg,
-      #1F1402 0%,
-      #151004 10%,
-      #0A0908 25%,
-      #0A0908 100%
+      #241F1C 0%,
+      #1C1917 15%,
+      #1C1917 100%
     );
 }
 
@@ -123,22 +122,22 @@ img, svg { display: block; max-width: 100%; }
 /* ---------- Glass panel (Premium Depth) ---------- */
 .glass-panel {
   position: relative;
-  background: rgba(20, 17, 10, 0.65);
-  border: 1px solid rgba(229, 160, 13, 0.22);
+  background: rgba(41, 37, 36, 0.65); /* Matched to Raisin Black */
+  border: 1px solid rgba(231, 172, 8, 0.15);
   border-radius: var(--radius-lg);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   box-shadow:
     0 4px 6px -1px rgba(0, 0, 0, 0.35),
     0 10px 15px -3px rgba(0, 0, 0, 0.25),
-    inset 0 0 0 1px rgba(229, 160, 13, 0.08);
+    inset 0 0 0 1px rgba(231, 172, 8, 0.05);
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
 }
 .glass-panel:hover {
   box-shadow:
     0 20px 25px -5px rgba(0, 0, 0, 0.45),
     0 10px 10px -5px rgba(0, 0, 0, 0.3),
-    0 0 24px -8px rgba(229, 160, 13, 0.2);
+    0 0 24px -8px rgba(231, 172, 8, 0.2);
 }
 
 
@@ -147,10 +146,10 @@ img, svg { display: block; max-width: 100%; }
   position: sticky;
   top: 0;
   z-index: 90;
-  background: rgba(10, 9, 8, 0.85);
+  background: rgba(28, 25, 23, 0.85); /* Matched to Eerie Black */
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(229, 160, 13, 0.18);
+  border-bottom: 1px solid rgba(231, 172, 8, 0.12);
 }
 .nav-inner {
   max-width: var(--container);
@@ -181,7 +180,7 @@ img, svg { display: block; max-width: 100%; }
   font-weight: 800; 
   font-size: 1.2rem; 
   color: var(--gold);
-  text-shadow: 0 2px 4px rgba(229, 160, 13, 0.18);
+  text-shadow: 0 2px 4px rgba(231, 172, 8, 0.18);
 }
 
 .nav-links { display: flex; gap: 1.4rem; margin-right: 1rem; }
@@ -211,9 +210,9 @@ img, svg { display: block; max-width: 100%; }
   color: #000000;
   border-radius: 0;
   background: var(--gold);
-  border: 1px solid rgba(255, 210, 110, 0.4);
+  border: 1px solid rgba(254, 237, 139, 0.4);
   box-shadow:
-    0 10px 25px -8px rgba(229, 160, 13, 0.5);
+    0 10px 25px -8px rgba(231, 172, 8, 0.5);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -225,7 +224,7 @@ img, svg { display: block; max-width: 100%; }
   transform: translateY(-3px);
   background: var(--gold-bright);
   box-shadow:
-    0 18px 35px -8px rgba(229, 160, 13, 0.6);
+    0 18px 35px -8px rgba(231, 172, 8, 0.6);
 }
 
 .cta-secondary {
@@ -242,7 +241,7 @@ img, svg { display: block; max-width: 100%; }
   transition: all 0.3s ease;
 }
 .cta-secondary:hover { 
-  background: rgba(229, 160, 13, 0.1);
+  background: rgba(231, 172, 8, 0.1);
   border-color: var(--gold-bright);
   color: var(--gold-bright);
   transform: translateY(-2px);
@@ -282,7 +281,7 @@ img, svg { display: block; max-width: 100%; }
   -webkit-text-fill-color: transparent;
   color: transparent;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4))
-          drop-shadow(0 0 15px rgba(229, 160, 13, 0.2));
+          drop-shadow(0 0 15px rgba(231, 172, 8, 0.2));
 }
 
 /* Reusable metallic gold text — mirrors the coin's beveled shine */
@@ -315,8 +314,8 @@ img, svg { display: block; max-width: 100%; }
   text-align: left;
   padding: 1.2rem;
   border-radius: 0;
-  background: rgba(229, 160, 13, 0.04);
-  border: 1px dashed rgba(229, 160, 13, 0.25);
+  background: rgba(231, 172, 8, 0.04);
+  border: 1px dashed rgba(231, 172, 8, 0.25);
 }
 .ca-label {
   font-family: var(--font-data);
@@ -339,8 +338,8 @@ img, svg { display: block; max-width: 100%; }
   font-size: 0.88rem;
   color: var(--gold);
   padding: 0.65rem 0.8rem;
-  background: var(--ink-deep);
-  border: 1px solid rgba(229, 160, 13, 0.25);
+  background: #12100F; /* Matched to ink-deep */
+  border: 1px solid rgba(231, 172, 8, 0.2);
   border-radius: 0;
   overflow: hidden;
   white-space: nowrap;
@@ -447,18 +446,18 @@ img, svg { display: block; max-width: 100%; }
 .section-blue::before {
   background: var(--ink-deep);
   background-image:
-    radial-gradient(at 20% 20%, rgba(229, 160, 13, 0.05) 0px, transparent 50%),
-    radial-gradient(at 80% 80%, rgba(142, 90, 13, 0.04) 0px, transparent 50%);
-  border-top: 1px solid rgba(229, 160, 13, 0.12);
-  border-bottom: 1px solid rgba(229, 160, 13, 0.12);
+    radial-gradient(at 20% 20%, rgba(231, 172, 8, 0.03) 0px, transparent 50%),
+    radial-gradient(at 80% 80%, rgba(115, 61, 18, 0.02) 0px, transparent 50%);
+  border-top: 1px solid rgba(231, 172, 8, 0.10);
+  border-bottom: 1px solid rgba(231, 172, 8, 0.10);
 }
 .section-red::before {
   background: var(--ink-soft);
   background-image:
-    radial-gradient(at 20% 20%, rgba(229, 160, 13, 0.07) 0px, transparent 50%),
-    radial-gradient(at 80% 80%, rgba(142, 90, 13, 0.05) 0px, transparent 50%);
-  border-top: 1px solid rgba(229, 160, 13, 0.15);
-  border-bottom: 1px solid rgba(229, 160, 13, 0.15);
+    radial-gradient(at 20% 20%, rgba(231, 172, 8, 0.04) 0px, transparent 50%),
+    radial-gradient(at 80% 80%, rgba(115, 61, 18, 0.03) 0px, transparent 50%);
+  border-top: 1px solid rgba(231, 172, 8, 0.12);
+  border-bottom: 1px solid rgba(231, 172, 8, 0.12);
 }
 
 /* Subtle gold-fleck pattern overlay on bands */
@@ -472,13 +471,13 @@ img, svg { display: block; max-width: 100%; }
   transform: translateX(-50%);
   z-index: -1;
   background-image:
-    radial-gradient(circle 1.5px at 8% 18%,  rgba(229, 160, 13, 0.35), transparent 60%),
-    radial-gradient(circle 1px   at 22% 64%, rgba(229, 160, 13, 0.25), transparent 60%),
-    radial-gradient(circle 1.2px at 38% 30%, rgba(229, 160, 13, 0.30), transparent 60%),
-    radial-gradient(circle 1px   at 55% 78%, rgba(229, 160, 13, 0.22), transparent 60%),
-    radial-gradient(circle 1.5px at 72% 22%, rgba(229, 160, 13, 0.32), transparent 60%),
-    radial-gradient(circle 1px   at 88% 60%, rgba(229, 160, 13, 0.25), transparent 60%),
-    radial-gradient(circle 1.2px at 95% 88%, rgba(229, 160, 13, 0.30), transparent 60%);
+    radial-gradient(circle 1.5px at 8% 18%,  rgba(231, 172, 8, 0.35), transparent 60%),
+    radial-gradient(circle 1px   at 22% 64%, rgba(231, 172, 8, 0.25), transparent 60%),
+    radial-gradient(circle 1.2px at 38% 30%, rgba(231, 172, 8, 0.30), transparent 60%),
+    radial-gradient(circle 1px   at 55% 78%, rgba(231, 172, 8, 0.22), transparent 60%),
+    radial-gradient(circle 1.5px at 72% 22%, rgba(231, 172, 8, 0.32), transparent 60%),
+    radial-gradient(circle 1px   at 88% 60%, rgba(231, 172, 8, 0.25), transparent 60%),
+    radial-gradient(circle 1.2px at 95% 88%, rgba(231, 172, 8, 0.30), transparent 60%);
   opacity: 0.6;
   pointer-events: none;
 }
@@ -501,7 +500,7 @@ img, svg { display: block; max-width: 100%; }
 @media (max-width: 560px)  { .how-grid { grid-template-columns: 1fr; } }
 
 .how-card { padding: 2rem 1.5rem; display: flex; flex-direction: column; gap: 1rem; transition: all 0.3s ease; }
-.how-card:hover { transform: translateY(-5px); border-color: var(--gold); box-shadow: 0 15px 35px rgba(0,0,0,0.4), 0 0 20px -5px rgba(229, 160, 13, 0.25); }
+.how-card:hover { transform: translateY(-5px); border-color: var(--gold); box-shadow: 0 15px 35px rgba(0,0,0,0.4), 0 0 20px -5px rgba(231, 172, 8, 0.25); }
 .how-number {
   font-family: var(--font-display);
   font-weight: 800;
@@ -518,7 +517,7 @@ img, svg { display: block; max-width: 100%; }
   color: var(--cream);
 }
 .how-card p { margin: 0; color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
-.how-link { font-weight: 700; color: var(--gold); margin-top: auto; border-top: 1px solid rgba(229, 160, 13, 0.15); padding-top: 1rem; }
+.how-link { font-weight: 700; color: var(--gold); margin-top: auto; border-top: 1px solid rgba(231, 172, 8, 0.15); padding-top: 1rem; }
 
 /* ---------- CHART ---------- */
 .chart-card {
@@ -534,7 +533,7 @@ img, svg { display: block; max-width: 100%; }
   gap: 1rem;
   flex-wrap: wrap;
   padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(229, 160, 13, 0.15);
+  border-bottom: 1px solid rgba(231, 172, 8, 0.15);
 }
 .chart-symbol {
   display: flex;
@@ -553,18 +552,18 @@ img, svg { display: block; max-width: 100%; }
   width: 9px; height: 9px;
   border-radius: 50%;
   background: var(--gold);
-  box-shadow: 0 0 0 4px rgba(229, 160, 13, 0.25);
+  box-shadow: 0 0 0 4px rgba(231, 172, 8, 0.25);
   animation: dotPulse 1.4s ease-in-out infinite;
 }
 @keyframes dotPulse {
-  0%, 100% { opacity: 1; box-shadow: 0 0 0 4px rgba(229, 160, 13, 0.25); }
-  50%      { opacity: 0.5; box-shadow: 0 0 0 8px rgba(229, 160, 13, 0); }
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 4px rgba(231, 172, 8, 0.25); }
+  50%      { opacity: 0.5; box-shadow: 0 0 0 8px rgba(231, 172, 8, 0); }
 }
 
 .chart-resolutions {
   display: inline-flex;
-  background: rgba(229, 160, 13, 0.06);
-  border: 1px solid rgba(229, 160, 13, 0.18);
+  background: rgba(231, 172, 8, 0.06);
+  border: 1px solid rgba(231, 172, 8, 0.18);
   border-radius: 0;
   padding: 4px;
 }
@@ -594,8 +593,8 @@ img, svg { display: block; max-width: 100%; }
 .stat {
   padding: 0.9rem 1rem;
   border-radius: var(--radius-md);
-  background: rgba(229, 160, 13, 0.05);
-  border: 1px solid rgba(229, 160, 13, 0.15);
+  background: rgba(231, 172, 8, 0.05);
+  border: 1px solid rgba(231, 172, 8, 0.15);
 }
 .stat-label {
   display: block;
@@ -621,8 +620,8 @@ img, svg { display: block; max-width: 100%; }
   position: relative;
   border-radius: var(--radius-md);
   overflow: hidden;
-  background: linear-gradient(180deg, var(--ink-deep) 0%, var(--ink-soft) 100%);
-  border: 1px solid rgba(229, 160, 13, 0.18);
+  background: linear-gradient(180deg, #12100F 0%, #1C1917 100%);
+  border: 1px solid rgba(231, 172, 8, 0.12);
 }
 .chart-canvas {
   display: block;
@@ -646,8 +645,8 @@ img, svg { display: block; max-width: 100%; }
   gap: 0.75rem;
   padding: 1.5rem 2rem;
   border-radius: var(--radius-md);
-  background: var(--ink-soft);
-  border: 1px solid rgba(229, 160, 13, 0.25);
+  background: #292524; /* Matched to Raisin Black */
+  border: 1px solid rgba(231, 172, 8, 0.2);
   box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.6);
 }
 .veil-eyebrow {
@@ -664,7 +663,7 @@ img, svg { display: block; max-width: 100%; }
 
 .chart-foot {
   padding-top: 1rem;
-  border-top: 1px solid rgba(229, 160, 13, 0.15);
+  border-top: 1px solid rgba(231, 172, 8, 0.15);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -682,12 +681,12 @@ img, svg { display: block; max-width: 100%; }
   border-radius: 0;
   color: var(--cream);
   font-weight: 600;
-  border: 2px solid rgba(229, 160, 13, 0.3);
+  border: 2px solid rgba(231, 172, 8, 0.3);
   background: transparent;
   transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
 }
 .cta-ghost:hover {
-  background: rgba(229, 160, 13, 0.08);
+  background: rgba(231, 172, 8, 0.08);
   border-color: var(--gold);
   color: var(--gold);
 }
@@ -776,18 +775,18 @@ img, svg { display: block; max-width: 100%; }
   height: 10px;
   border-radius: 50%;
 }
-.legend-dot-red  { background: var(--gold); box-shadow: 0 0 0 3px rgba(229, 160, 13, 0.2); }
-.legend-dot-blue { background: var(--gold-bright); box-shadow: 0 0 0 3px rgba(242, 204, 85, 0.2); }
+.legend-dot-red  { background: var(--gold); box-shadow: 0 0 0 3px rgba(231, 172, 8, 0.2); }
+.legend-dot-blue { background: var(--gold-bright); box-shadow: 0 0 0 3px rgba(254, 237, 139, 0.2); }
 
 .comparison-graph {
   position: relative;
   width: 100%;
   height: 320px;
   margin: 0;
-  background: rgba(229, 160, 13, 0.03);
+  background: rgba(231, 172, 8, 0.03);
   border-radius: var(--radius-md);
   overflow: visible;
-  border: 1px solid rgba(229, 160, 13, 0.12);
+  border: 1px solid rgba(231, 172, 8, 0.12);
   cursor: crosshair;
 }
 .comparison-graph .comp-svg {
@@ -808,7 +807,7 @@ img, svg { display: block; max-width: 100%; }
   min-width: 180px;
   padding: 0.75rem 0.9rem;
   background: rgba(10, 9, 8, 0.96);
-  border: 1px solid rgba(229, 160, 13, 0.35);
+  border: 1px solid rgba(231, 172, 8, 0.35);
   border-radius: 0;
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
   font-family: var(--font-body);
@@ -856,7 +855,7 @@ img, svg { display: block; max-width: 100%; }
   align-items: center;
   margin-top: 0.5rem;
   padding-top: 0.5rem;
-  border-top: 1px dashed rgba(229, 160, 13, 0.2);
+  border-top: 1px dashed rgba(231, 172, 8, 0.2);
   font-size: 0.75rem;
   color: var(--text-light);
   font-family: var(--font-data);
@@ -979,10 +978,10 @@ img, svg { display: block; max-width: 100%; }
   gap: 0.6rem;
 }
 .promise-list li {
-  background: rgba(229, 160, 13, 0.04);
+  background: rgba(231, 172, 8, 0.04);
   padding: 0.7rem 0.9rem;
   border-radius: 0;
-  border: 1px solid rgba(229, 160, 13, 0.18);
+  border: 1px solid rgba(231, 172, 8, 0.18);
   display: flex;
   align-items: center;
   gap: 0.6rem;
@@ -1035,7 +1034,7 @@ img, svg { display: block; max-width: 100%; }
   flex-direction: column;
   gap: 0.4rem;
   padding-bottom: 1.25rem;
-  border-bottom: 1px dashed rgba(229, 160, 13, 0.22);
+  border-bottom: 1px dashed rgba(231, 172, 8, 0.22);
 }
 .reserve-side-title {
   margin: 0;
@@ -1062,7 +1061,7 @@ img, svg { display: block; max-width: 100%; }
   gap: 1rem;
   flex-wrap: wrap;
   padding-bottom: 1.25rem;
-  border-bottom: 1px dashed rgba(229, 160, 13, 0.22);
+  border-bottom: 1px dashed rgba(231, 172, 8, 0.22);
 }
 .reserve-pct {
   display: flex;
@@ -1094,15 +1093,15 @@ img, svg { display: block; max-width: 100%; }
   flex: 1;
   min-width: 130px;
   padding: 1rem 1.1rem;
-  background: rgba(229, 160, 13, 0.04);
-  border: 1px solid rgba(229, 160, 13, 0.18);
+  background: rgba(231, 172, 8, 0.04);
+  border: 1px solid rgba(231, 172, 8, 0.18);
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 }
 .flow-node-accent {
-  background: rgba(229, 160, 13, 0.14);
-  border-color: rgba(229, 160, 13, 0.45);
+  background: rgba(231, 172, 8, 0.14);
+  border-color: rgba(231, 172, 8, 0.45);
 }
 .flow-node-final {
   background: var(--gold);
@@ -1165,8 +1164,8 @@ img, svg { display: block; max-width: 100%; }
 
 .reserve-wallet {
   padding: 1.2rem;
-  background: rgba(229, 160, 13, 0.04);
-  border: 1px dashed rgba(229, 160, 13, 0.25);
+  background: rgba(231, 172, 8, 0.04);
+  border: 1px dashed rgba(231, 172, 8, 0.25);
 }
 .reserve-wallet-label {
   font-family: var(--font-data);
@@ -1190,8 +1189,8 @@ img, svg { display: block; max-width: 100%; }
   align-items: flex-start;
   gap: 0.9rem;
   padding: 1rem;
-  background: rgba(229, 160, 13, 0.04);
-  border: 1px solid rgba(229, 160, 13, 0.18);
+  background: rgba(231, 172, 8, 0.04);
+  border: 1px solid rgba(231, 172, 8, 0.18);
 }
 .reserve-list strong {
   display: block;
@@ -1262,7 +1261,7 @@ img, svg { display: block; max-width: 100%; }
 .footer {
   background: var(--ink-deep);
   padding: 3rem 1.25rem 2rem;
-  border-top: 1px solid rgba(229, 160, 13, 0.18);
+  border-top: 1px solid rgba(231, 172, 8, 0.12);
 }
 .footer-inner {
   max-width: var(--container);
@@ -1295,7 +1294,7 @@ img, svg { display: block; max-width: 100%; }
   padding: 0.5rem 0.95rem;
   border-radius: 0;
   background: transparent;
-  border: 1px solid rgba(229, 160, 13, 0.3);
+  border: 1px solid rgba(231, 172, 8, 0.3);
   color: var(--gold);
   font-family: var(--font-display);
   font-weight: 700;
