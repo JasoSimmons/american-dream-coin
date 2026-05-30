@@ -175,16 +175,16 @@
       line.setAttribute("y1", y);
       line.setAttribute("x2", VB_W - PAD_R);
       line.setAttribute("y2", y);
-      line.setAttribute("stroke", "rgba(15, 23, 42, 0.06)");
+      line.setAttribute("stroke", "rgba(229, 160, 13, 0.10)");
       gridGroup.appendChild(line);
 
       const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
       label.setAttribute("x", PAD_L - 10);
       label.setAttribute("y", y + 4);
       label.setAttribute("text-anchor", "end");
-      label.setAttribute("fill", "#94A3B8");
+      label.setAttribute("fill", "var(--cream-faint)");
       label.setAttribute("font-size", "10");
-      label.setAttribute("font-family", "Space Mono, monospace");
+      label.setAttribute("font-family", "var(--font-data)");
       label.textContent = v === 0 ? "$0" : "$" + v / 1000 + "k";
       yLabels.appendChild(label);
     });
@@ -197,9 +197,9 @@
       label.setAttribute("x", x);
       label.setAttribute("y", VB_H - PAD_B + 20);
       label.setAttribute("text-anchor", "middle");
-      label.setAttribute("fill", "#94A3B8");
+      label.setAttribute("fill", "var(--cream-faint)");
       label.setAttribute("font-size", "10");
-      label.setAttribute("font-family", "Space Mono, monospace");
+      label.setAttribute("font-family", "var(--font-data)");
       label.textContent = year;
       xLabels.appendChild(label);
     });

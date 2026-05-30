@@ -13,13 +13,14 @@
     <meta property="og:description" content="A patriotic Solana movement for Main Street. Restoring the American Dream, one block at a time." />
     <meta property="og:type" content="website" />
     <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <meta name="theme-color" content="#0A0908" />
     <link
       rel="preconnect"
       href="https://fonts.googleapis.com"
     />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Ubuntu:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -222,11 +223,11 @@
             >
               <defs>
                 <linearGradient id="area-g" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#0066FF" stop-opacity="0.25" />
-                  <stop offset="100%" stop-color="#0066FF" stop-opacity="0" />
+                  <stop offset="0%" stop-color="#E5A00D" stop-opacity="0.30" />
+                  <stop offset="100%" stop-color="#E5A00D" stop-opacity="0" />
                 </linearGradient>
                 <pattern id="chart-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                  <path d="M40 0H0V40" fill="none" stroke="rgba(10, 26, 71, 0.06)" stroke-width="1" />
+                  <path d="M40 0H0V40" fill="none" stroke="rgba(229, 160, 13, 0.10)" stroke-width="1" />
                 </pattern>
               </defs>
 
@@ -241,12 +242,12 @@
                 id="chart-line"
                 d="M0,200 L40,190 L80,205 L120,170 L160,180 L200,150 L240,160 L280,130 L320,145 L360,110 L400,120 L440,90 L480,100 L520,70 L560,85 L600,55 L640,70 L680,40 L720,55 L760,25 L800,40"
                 fill="none"
-                stroke="#0066FF"
+                stroke="#E5A00D"
                 stroke-width="2.5"
                 stroke-linecap="round"
                 stroke-linejoin="round"
               />
-              <circle cx="800" cy="40" r="5" fill="#fff" stroke="#FF3B3F" stroke-width="2">
+              <circle cx="800" cy="40" r="5" fill="#0A0908" stroke="#FFD26E" stroke-width="2">
                 <animate attributeName="r" values="5;9;5" dur="1.6s" repeatCount="indefinite" />
                 <animate attributeName="opacity" values="1;0.4;1" dur="1.6s" repeatCount="indefinite" />
               </circle>
@@ -279,9 +280,10 @@
           <span class="eyebrow">★ The Mission ★</span>
           <h2>The American Dream Index</h2>
           <p>
-            For decades, Wall Street bought up America while regular people got
-            priced out. $DREAM flips that narrative by turning the housing
-            crisis and America first finance into a cultural onchain asset.
+            For too long, the benefits of America's growth have flowed to a
+            select few. Wall Street bought the housing. Institutions own the
+            assets. Everyday Americans deserve a seat at the table, and $DREAM
+            is how we get one.
           </p>
         </div>
 
@@ -290,9 +292,8 @@
             <span class="index-eyebrow">Affordability Score · Q1 2026</span>
             <div class="gauge">
               <svg viewBox="0 0 200 120" class="gauge-svg" aria-hidden="true">
-                <path d="M20,110 A80,80 0 0 1 180,110" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="14" stroke-linecap="butt" />
-                <path id="gauge-arc" d="M20,110 A80,80 0 0 1 180,110" fill="none" stroke="#FF3B3F" stroke-width="14" stroke-linecap="butt" stroke-dasharray="251" stroke-dashoffset="180" />
-                <circle id="gauge-needle" cx="100" cy="110" r="6" fill="#fff" />
+                <path d="M20,110 A80,80 0 0 1 180,110" fill="none" stroke="rgba(229, 160, 13, 0.15)" stroke-width="14" stroke-linecap="butt" />
+                <path id="gauge-arc" d="M20,110 A80,80 0 0 1 180,110" fill="none" stroke="#E5A00D" stroke-width="14" stroke-linecap="butt" stroke-dasharray="251" stroke-dashoffset="180" />
               </svg>
               <div class="gauge-value">
                 <span class="gauge-num" id="gauge-num">28</span><span class="gauge-of">/100</span>
@@ -321,12 +322,12 @@
               <svg viewBox="0 0 800 320" class="comp-svg" preserveAspectRatio="none">
                 <defs>
                   <linearGradient id="house-g" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#FF3B3F" stop-opacity="0.25" />
-                    <stop offset="100%" stop-color="#FF3B3F" stop-opacity="0" />
+                    <stop offset="0%" stop-color="#E5A00D" stop-opacity="0.30" />
+                    <stop offset="100%" stop-color="#E5A00D" stop-opacity="0" />
                   </linearGradient>
                   <linearGradient id="income-g" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#0066FF" stop-opacity="0.18" />
-                    <stop offset="100%" stop-color="#0066FF" stop-opacity="0" />
+                    <stop offset="0%" stop-color="#FFD26E" stop-opacity="0.18" />
+                    <stop offset="100%" stop-color="#FFD26E" stop-opacity="0" />
                   </linearGradient>
                 </defs>
 
@@ -336,12 +337,12 @@
 
                 <path id="income-area" fill="url(#income-g)" />
                 <path id="house-area" fill="url(#house-g)" />
-                <path id="income-line" fill="none" stroke="#0066FF" stroke-width="2.5" stroke-linejoin="round" />
-                <path id="house-line" fill="none" stroke="#FF3B3F" stroke-width="3" stroke-linejoin="round" />
+                <path id="income-line" fill="none" stroke="#FFD26E" stroke-width="2.5" stroke-linejoin="round" stroke-dasharray="5,4" />
+                <path id="house-line" fill="none" stroke="#E5A00D" stroke-width="3" stroke-linejoin="round" />
 
-                <line id="hover-line" x1="0" y1="20" x2="0" y2="280" stroke="rgba(0,0,0,0.2)" stroke-width="1" stroke-dasharray="3,3" style="opacity:0" />
-                <circle id="hover-house-dot" r="6" fill="#fff" stroke="#FF3B3F" stroke-width="3" style="opacity:0" />
-                <circle id="hover-income-dot" r="6" fill="#fff" stroke="#0066FF" stroke-width="3" style="opacity:0" />
+                <line id="hover-line" x1="0" y1="20" x2="0" y2="280" stroke="rgba(232,185,35,0.35)" stroke-width="1" stroke-dasharray="3,3" style="opacity:0" />
+                <circle id="hover-house-dot" r="6" fill="#0A0908" stroke="#E5A00D" stroke-width="3" style="opacity:0" />
+                <circle id="hover-income-dot" r="6" fill="#0A0908" stroke="#FFD26E" stroke-width="3" style="opacity:0" />
               </svg>
               <div id="chart-tooltip" class="chart-tooltip">
                 <div class="tooltip-year">—</div>
@@ -536,6 +537,7 @@
         <div class="final-card glass-panel">
           <h2>The Dream isn't dead.</h2>
           <p>It's just getting started.</p>
+          <p class="final-tagline">More owners. More opportunity. More financial freedom.</p>
           <div class="final-cta-row">
             <a class="cta-primary" href="#how">
               <span class="cta-shine"></span>
@@ -566,7 +568,7 @@
         </nav>
 
         <div class="footer-social">
-          <a href="#" aria-label="X / Twitter">Twitter</a>
+          <a href="https://x.com/AmericanDreamFi" target="_blank" rel="noopener" aria-label="X / Twitter">Twitter</a>
           <a href="#" aria-label="Dexscreener">Dexscreener</a>
         </div>
       </div>
