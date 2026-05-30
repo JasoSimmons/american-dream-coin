@@ -97,16 +97,17 @@ img, svg { display: block; max-width: 100%; }
   background-color: var(--ink);
   background-image:
     radial-gradient(
-      ellipse 90% 70% at 50% 0%,
-      rgba(231, 172, 8, 0.10) 0%,
-      rgba(36, 31, 28, 0.6) 35%,
-      transparent 70%
+      ellipse 100% 80% at 50% -10%,
+      rgba(231, 172, 8, 0.14) 0%,
+      rgba(115, 61, 18, 0.10) 25%,
+      transparent 60%
     ),
     linear-gradient(
       180deg,
-      #241F1C 0%,
-      #1F1B19 40%,
-      #1C1917 100%
+      #2A2420 0%,
+      #221D1A 35%,
+      #1C1917 70%,
+      #141110 100%
     );
 }
 
