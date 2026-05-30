@@ -70,7 +70,7 @@
 
   /* -------------------- 5. Reveal-on-scroll for section cards -------------------- */
   const revealEls = document.querySelectorAll(
-    ".how-card, .road-step, .token-card, .index-hero, .index-stat, .index-cta, .chart-card, .final-card"
+    ".how-note, .road-step, .token-card, .index-hero, .index-stat, .index-cta, .chart-card, .final-card"
   );
 
   if ("IntersectionObserver" in window) {
@@ -291,6 +291,50 @@
   const heroSection = document.querySelector(".hero");
   const nav = document.querySelector(".nav");
   let scrollQueued = false;
+  /* -------------------- 7d. 3D coin — spin on scroll while in view -------------------- */
+  const coin = document.querySelector(".how-coin");
+  const coinSpinner = document.querySelector(".how-coin-spinner");
+  let lastScrollY = window.scrollY;
+  let spinningDown = false;
+
+  const restartCoinSpin = () => {
+    if (!coinSpinner) return;
+    coinSpinner.classList.remove("is-spinning");
+    void coinSpinner.offsetWidth;
+    coinSpinner.classList.add("is-spinning");
+  };
+
+  const maybeSpinCoin = () => {
+    if (!coin || !coinSpinner) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const scrollY = window.scrollY;
+    if (scrollY === lastScrollY) return;
+
+    const scrollingDown = scrollY > lastScrollY;
+    lastScrollY = scrollY;
+
+    const rect = coin.getBoundingClientRect();
+    const inView =
+      rect.top < window.innerHeight * 0.85 &&
+      rect.bottom > window.innerHeight * 0.15;
+
+    if (!inView) {
+      spinningDown = false;
+      return;
+    }
+
+    if (!scrollingDown) {
+      spinningDown = false;
+      return;
+    }
+
+    if (spinningDown) return;
+
+    spinningDown = true;
+    restartCoinSpin();
+  };
+
   const onScroll = () => {
     scrollQueued = false;
     if (heroBg && heroSection) {
@@ -301,6 +345,7 @@
     if (nav) {
       nav.classList.toggle("is-scrolled", window.scrollY > 40);
     }
+    maybeSpinCoin();
   };
   window.addEventListener(
     "scroll",

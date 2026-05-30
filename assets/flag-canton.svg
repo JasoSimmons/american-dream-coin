@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="260" height="150" viewBox="0 0 260 150">
+  <defs>
+    <path id="st" d="M0,-10 2.24,-3.09 9.51,-3.09 3.63,1.18 5.88,8.09 0,3.82 -5.88,8.09 -3.63,1.18 -9.51,-3.09 -2.24,-3.09 Z"/>
+  </defs>
+  <g fill="#E7AC08" fill-opacity="0.9">
+    <use href="#st" transform="translate(22,16) scale(0.62)"/>
+    <use href="#st" transform="translate(62,16) scale(0.62)"/>
+    <use href="#st" transform="translate(102,16) scale(0.62)"/>
+    <use href="#st" transform="translate(142,16) scale(0.62)"/>
+    <use href="#st" transform="translate(182,16) scale(0.62)"/>
+    <use href="#st" transform="translate(222,16) scale(0.62)"/>
+    <use href="#st" transform="translate(42,32) scale(0.62)"/>
+    <use href="#st" transform="translate(82,32) scale(0.62)"/>
+    <use href="#st" transform="translate(122,32) scale(0.62)"/>
+    <use href="#st" transform="translate(162,32) scale(0.62)"/>
+    <use href="#st" transform="translate(202,32) scale(0.62)"/>
+    <use href="#st" transform="translate(22,48) scale(0.62)"/>
+    <use href="#st" transform="translate(62,48) scale(0.62)"/>
+    <use href="#st" transform="translate(102,48) scale(0.62)"/>
+    <use href="#st" transform="translate(142,48) scale(0.62)"/>
+    <use href="#st" transform="translate(182,48) scale(0.62)"/>
+    <use href="#st" transform="translate(222,48) scale(0.62)"/>
+    <use href="#st" transform="translate(42,64) scale(0.62)"/>
+    <use href="#st" transform="translate(82,64) scale(0.62)"/>
+    <use href="#st" transform="translate(122,64) scale(0.62)"/>
+    <use href="#st" transform="translate(162,64) scale(0.62)"/>
+    <use href="#st" transform="translate(202,64) scale(0.62)"/>
+    <use href="#st" transform="translate(22,80) scale(0.62)"/>
+    <use href="#st" transform="translate(62,80) scale(0.62)"/>
+    <use href="#st" transform="translate(102,80) scale(0.62)"/>
+    <use href="#st" transform="translate(142,80) scale(0.62)"/>
+    <use href="#st" transform="translate(182,80) scale(0.62)"/>
+    <use href="#st" transform="translate(222,80) scale(0.62)"/>
+    <use href="#st" transform="translate(42,96) scale(0.62)"/>
+    <use href="#st" transform="translate(82,96) scale(0.62)"/>
+    <use href="#st" transform="translate(122,96) scale(0.62)"/>
+    <use href="#st" transform="translate(162,96) scale(0.62)"/>
+    <use href="#st" transform="translate(202,96) scale(0.62)"/>
+    <use href="#st" transform="translate(22,112) scale(0.62)"/>
+    <use href="#st" transform="translate(62,112) scale(0.62)"/>
+    <use href="#st" transform="translate(102,112) scale(0.62)"/>
+    <use href="#st" transform="translate(142,112) scale(0.62)"/>
+    <use href="#st" transform="translate(182,112) scale(0.62)"/>
+    <use href="#st" transform="translate(222,112) scale(0.62)"/>
+    <use href="#st" transform="translate(42,128) scale(0.62)"/>
+    <use href="#st" transform="translate(82,128) scale(0.62)"/>
+    <use href="#st" transform="translate(122,128) scale(0.62)"/>
+    <use href="#st" transform="translate(162,128) scale(0.62)"/>
+    <use href="#st" transform="translate(202,128) scale(0.62)"/>
+    <use href="#st" transform="translate(22,144) scale(0.62)"/>
+    <use href="#st" transform="translate(62,144) scale(0.62)"/>
+    <use href="#st" transform="translate(102,144) scale(0.62)"/>
+    <use href="#st" transform="translate(142,144) scale(0.62)"/>
+    <use href="#st" transform="translate(182,144) scale(0.62)"/>
+    <use href="#st" transform="translate(222,144) scale(0.62)"/>
+  </g>
+</svg>
