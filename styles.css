@@ -543,11 +543,8 @@ img, svg { display: block; max-width: 100%; }
 .section-red::before {
   background: transparent;
   background-image:
-    url('assets/stars.svg'),
     radial-gradient(at 20% 20%, rgba(231, 172, 8, 0.05) 0px, transparent 50%),
     radial-gradient(at 80% 80%, rgba(115, 61, 18, 0.04) 0px, transparent 50%);
-  background-repeat: repeat, no-repeat, no-repeat;
-  background-size: 340px 340px, auto, auto;
   border-top: 1px solid rgba(231, 172, 8, 0.10);
   border-bottom: 1px solid rgba(231, 172, 8, 0.10);
 }
@@ -1045,6 +1042,21 @@ img, svg { display: block; max-width: 100%; }
 .index-cta-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
 
 /* ---------- TOKENOMICS ---------- */
+#tokenomics {
+  position: relative;
+  isolation: isolate;
+}
+#tokenomics::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: url('assets/stars.svg');
+  background-repeat: repeat;
+  background-size: 340px 340px;
+  pointer-events: none;
+}
+
 .tokenomics-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
