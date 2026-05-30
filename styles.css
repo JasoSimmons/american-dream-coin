@@ -261,14 +261,22 @@ img, svg { display: block; max-width: 100%; }
   max-width: 100%; 
   margin: 0; 
   padding: 8rem 1.25rem 6rem;
-  background-image: url('assets/hero-visual.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('assets/hero-visual.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  will-change: opacity;
+  transition: opacity 0.15s linear;
 }
 
 .hero::before {
