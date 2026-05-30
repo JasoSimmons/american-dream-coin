@@ -743,6 +743,11 @@ img, svg { display: block; max-width: 100%; }
 .cta-sm { padding: 0.55rem 1.1rem; font-size: 0.8rem; }
 
 /* ---------- Index Hero ---------- */
+.index-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
 .index-hero {
   grid-column: 1 / -1;
   max-width: 720px;
