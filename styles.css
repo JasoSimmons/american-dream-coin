@@ -98,10 +98,9 @@ img, svg { display: block; max-width: 100%; }
   background-image:
     linear-gradient(
       180deg,
-      #3D2603 0%,
-      #2A1C08 8%,
-      #150E07 18%,
-      #0A0908 35%,
+      #1F1402 0%,
+      #151004 10%,
+      #0A0908 25%,
       #0A0908 100%
     );
 }
@@ -448,18 +447,18 @@ img, svg { display: block; max-width: 100%; }
 .section-blue::before {
   background: var(--ink-deep);
   background-image:
-    radial-gradient(at 20% 20%, rgba(229, 160, 13, 0.10) 0px, transparent 55%),
-    radial-gradient(at 80% 80%, rgba(142, 90, 13, 0.08) 0px, transparent 55%);
-  border-top: 1px solid rgba(229, 160, 13, 0.18);
-  border-bottom: 1px solid rgba(229, 160, 13, 0.18);
+    radial-gradient(at 20% 20%, rgba(229, 160, 13, 0.05) 0px, transparent 50%),
+    radial-gradient(at 80% 80%, rgba(142, 90, 13, 0.04) 0px, transparent 50%);
+  border-top: 1px solid rgba(229, 160, 13, 0.12);
+  border-bottom: 1px solid rgba(229, 160, 13, 0.12);
 }
 .section-red::before {
   background: var(--ink-soft);
   background-image:
-    radial-gradient(at 20% 20%, rgba(229, 160, 13, 0.14) 0px, transparent 55%),
-    radial-gradient(at 80% 80%, rgba(142, 90, 13, 0.10) 0px, transparent 55%);
-  border-top: 1px solid rgba(229, 160, 13, 0.22);
-  border-bottom: 1px solid rgba(229, 160, 13, 0.22);
+    radial-gradient(at 20% 20%, rgba(229, 160, 13, 0.07) 0px, transparent 50%),
+    radial-gradient(at 80% 80%, rgba(142, 90, 13, 0.05) 0px, transparent 50%);
+  border-top: 1px solid rgba(229, 160, 13, 0.15);
+  border-bottom: 1px solid rgba(229, 160, 13, 0.15);
 }
 
 /* Subtle gold-fleck pattern overlay on bands */
