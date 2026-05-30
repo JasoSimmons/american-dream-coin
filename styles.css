@@ -1360,6 +1360,36 @@ img, svg { display: block; max-width: 100%; }
 
 /* ---------- FINAL CTA ---------- */
 .final-cta { padding-top: 1rem; padding-bottom: 6rem; }
+
+.dream-marquee {
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+}
+.dream-track {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  animation: dreamScroll 45s linear infinite;
+}
+.dream-track img {
+  width: 280px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(231, 172, 8, 0.25);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  flex-shrink: 0;
+}
+.dream-marquee:hover .dream-track { animation-play-state: paused; }
+@keyframes dreamScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dream-track { animation: none; }
+}
 .final-card {
   padding: 4rem 2rem;
   text-align: center;
