@@ -97,6 +97,46 @@ img, svg { display: block; max-width: 100%; }
   background-color: #121212;
 }
 
+.bg-root::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #121212;
+  background-image:
+    radial-gradient(1.2px 1.2px at 6% 14%, rgba(231, 172, 8, 0.07), transparent),
+    radial-gradient(1.8px 1.8px at 18% 42%, rgba(231, 172, 8, 0.05), transparent),
+    radial-gradient(2.4px 2.4px at 32% 22%, rgba(231, 172, 8, 0.06), transparent),
+    radial-gradient(1.4px 1.4px at 44% 68%, rgba(231, 172, 8, 0.05), transparent),
+    radial-gradient(2px 2px at 58% 36%, rgba(231, 172, 8, 0.06), transparent),
+    radial-gradient(1.6px 1.6px at 71% 58%, rgba(231, 172, 8, 0.05), transparent),
+    radial-gradient(2.2px 2.2px at 84% 18%, rgba(231, 172, 8, 0.06), transparent),
+    radial-gradient(1.3px 1.3px at 92% 74%, rgba(231, 172, 8, 0.05), transparent),
+    radial-gradient(2.6px 2.6px at 12% 78%, rgba(231, 172, 8, 0.06), transparent),
+    radial-gradient(1.5px 1.5px at 26% 88%, rgba(231, 172, 8, 0.05), transparent),
+    radial-gradient(2.1px 2.1px at 48% 8%, rgba(231, 172, 8, 0.06), transparent),
+    radial-gradient(1.7px 1.7px at 63% 82%, rgba(231, 172, 8, 0.05), transparent),
+    radial-gradient(2.3px 2.3px at 76% 46%, rgba(231, 172, 8, 0.06), transparent),
+    radial-gradient(1.4px 1.4px at 88% 52%, rgba(231, 172, 8, 0.05), transparent),
+    radial-gradient(1.9px 1.9px at 38% 52%, rgba(231, 172, 8, 0.05), transparent),
+    radial-gradient(2.5px 2.5px at 54% 62%, rgba(231, 172, 8, 0.06), transparent),
+    radial-gradient(1.1px 1.1px at 8% 56%, rgba(231, 172, 8, 0.05), transparent),
+    radial-gradient(1.8px 1.8px at 22% 18%, rgba(231, 172, 8, 0.06), transparent),
+    radial-gradient(2.2px 2.2px at 36% 72%, rgba(231, 172, 8, 0.05), transparent),
+    radial-gradient(1.5px 1.5px at 52% 28%, rgba(231, 172, 8, 0.06), transparent),
+    radial-gradient(2px 2px at 66% 12%, rgba(231, 172, 8, 0.05), transparent),
+    radial-gradient(1.3px 1.3px at 78% 88%, rgba(231, 172, 8, 0.06), transparent),
+    radial-gradient(2.4px 2.4px at 94% 32%, rgba(231, 172, 8, 0.05), transparent),
+    radial-gradient(1.6px 1.6px at 4% 92%, rgba(231, 172, 8, 0.05), transparent),
+    radial-gradient(2.1px 2.1px at 16% 64%, rgba(231, 172, 8, 0.06), transparent),
+    radial-gradient(1.4px 1.4px at 42% 92%, rgba(231, 172, 8, 0.05), transparent),
+    radial-gradient(2.3px 2.3px at 72% 72%, rgba(231, 172, 8, 0.06), transparent),
+    radial-gradient(1.2px 1.2px at 96% 8%, rgba(231, 172, 8, 0.05), transparent);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  pointer-events: none;
+}
+
 /* Subtle film-grain for depth */
 .bg-root::after {
   content: "";
@@ -104,14 +144,15 @@ img, svg { display: block; max-width: 100%; }
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 220px 220px;
-  opacity: 0.04;
+  background-attachment: fixed;
+  opacity: 0.025;
   mix-blend-mode: overlay;
 }
 
 /* Orbs are now disabled — gradient does the heavy lifting like WLFI */
 .orb { display: none; }
 
-/* Star pattern — everything below the hero */
+/* Star pattern — tiled star shapes behind everything below the hero */
 .starred-zone {
   position: relative;
   isolation: isolate;
@@ -128,10 +169,6 @@ img, svg { display: block; max-width: 100%; }
   pointer-events: none;
 }
 
-footer.starred-zone::before {
-  position: absolute;
-}
-
 
 /* ---------- Glass panel (Premium Depth) ---------- */
 .glass-panel {
@@ -143,8 +180,7 @@ footer.starred-zone::before {
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   box-shadow:
     0 4px 6px -1px rgba(0, 0, 0, 0.35),
-    0 10px 15px -3px rgba(0, 0, 0, 0.25),
-    inset 0 0 0 1px rgba(231, 172, 8, 0.05);
+    0 10px 15px -3px rgba(0, 0, 0, 0.25);
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
 }
 .glass-panel:hover {
@@ -272,7 +308,7 @@ footer.starred-zone::before {
 }
 
 /* ---------- HERO ---------- */
-.hero { 
+.hero {
   position: relative;
   max-width: 100%; 
   margin: 0; 
@@ -280,24 +316,25 @@ footer.starred-zone::before {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .hero-bg {
   position: absolute;
-  inset: 0;
+  inset: 0 0 -6rem;
   background-image:
     radial-gradient(
       ellipse 70% 60% at 50% 45%,
       rgba(10, 9, 8, 0.65) 0%,
       rgba(10, 9, 8, 0.3) 60%,
-      rgba(10, 9, 8, 0.15) 100%
+      rgba(10, 9, 8, 0.08) 100%
     ),
     linear-gradient(
       to bottom,
       rgba(10, 9, 8, 0.4) 0%,
-      rgba(10, 9, 8, 0.2) 45%,
-      rgba(10, 9, 8, 0.55) 100%
+      rgba(10, 9, 8, 0.18) 50%,
+      rgba(10, 9, 8, 0.06) 82%,
+      transparent 100%
     ),
     url('assets/hero-visual.png');
   background-size: cover, cover, cover;
@@ -306,8 +343,8 @@ footer.starred-zone::before {
   z-index: 0;
   will-change: opacity;
   transition: opacity 0.1s linear;
-  -webkit-mask-image: linear-gradient(to bottom, #000 40%, rgba(0, 0, 0, 0.45) 72%, transparent 100%);
-  mask-image: linear-gradient(to bottom, #000 40%, rgba(0, 0, 0, 0.45) 72%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 30%, rgba(0, 0, 0, 0.6) 62%, rgba(0, 0, 0, 0.12) 86%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 30%, rgba(0, 0, 0, 0.6) 62%, rgba(0, 0, 0, 0.12) 86%, transparent 100%);
 }
 
 .hero-panel { 
@@ -490,6 +527,7 @@ footer.starred-zone::before {
 /* First section after hero — tighten the gap above onboarding */
 #how {
   padding-top: 2rem;
+  margin-top: -4rem;
 }
 
 .section-head { text-align: center; margin-bottom: 3.5rem; }
@@ -518,57 +556,8 @@ footer.starred-zone::before {
 .section-blue,
 .section-red {
   position: relative;
-  isolation: isolate;
   margin-top: 0;
   margin-bottom: 0;
-}
-.section-blue::before,
-.section-red::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  left: 50%;
-  width: 100vw;
-  transform: translateX(-50%);
-  z-index: -1;
-}
-.section-blue::before {
-  background: transparent;
-  background-image:
-    radial-gradient(at 20% 20%, rgba(231, 172, 8, 0.04) 0px, transparent 50%),
-    radial-gradient(at 80% 80%, rgba(115, 61, 18, 0.03) 0px, transparent 50%);
-  border-top: 1px solid rgba(231, 172, 8, 0.08);
-  border-bottom: 1px solid rgba(231, 172, 8, 0.08);
-}
-.section-red::before {
-  background: transparent;
-  background-image:
-    radial-gradient(at 20% 20%, rgba(231, 172, 8, 0.05) 0px, transparent 50%),
-    radial-gradient(at 80% 80%, rgba(115, 61, 18, 0.04) 0px, transparent 50%);
-  border-top: 1px solid rgba(231, 172, 8, 0.10);
-  border-bottom: 1px solid rgba(231, 172, 8, 0.10);
-}
-
-/* Subtle gold-fleck pattern overlay on bands */
-.section-blue::after,
-.section-red::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  left: 50%;
-  width: 100vw;
-  transform: translateX(-50%);
-  z-index: -1;
-  background-image:
-    radial-gradient(circle 1.5px at 8% 18%,  rgba(231, 172, 8, 0.35), transparent 60%),
-    radial-gradient(circle 1px   at 22% 64%, rgba(231, 172, 8, 0.25), transparent 60%),
-    radial-gradient(circle 1.2px at 38% 30%, rgba(231, 172, 8, 0.30), transparent 60%),
-    radial-gradient(circle 1px   at 55% 78%, rgba(231, 172, 8, 0.22), transparent 60%),
-    radial-gradient(circle 1.5px at 72% 22%, rgba(231, 172, 8, 0.32), transparent 60%),
-    radial-gradient(circle 1px   at 88% 60%, rgba(231, 172, 8, 0.25), transparent 60%),
-    radial-gradient(circle 1.2px at 95% 88%, rgba(231, 172, 8, 0.30), transparent 60%);
-  opacity: 0.6;
-  pointer-events: none;
 }
 
 /* Section-specific accent emphasis (cards stay dark, gold strong inside) */
@@ -586,34 +575,25 @@ footer.starred-zone::before {
 /* ---------- HOW TO BUY ---------- */
 .how-orbit {
   display: grid;
-  grid-template-columns: minmax(250px, 300px) minmax(300px, 480px) minmax(250px, 300px);
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: auto;
   grid-template-areas:
-    "note-tl coin note-tr"
-    "note-bl coin note-br";
-  gap: 2rem 3rem;
-  align-items: center;
+    "note-tl note-bl note-tr note-br";
+  gap: 2.75rem;
+  align-items: start;
+  justify-items: center;
   justify-content: center;
   max-width: 1240px;
-  min-height: min(680px, 95vw);
   margin: 0 auto;
   padding: 2rem 0 2.5rem;
-}
-
-.how-orbit-center {
-  grid-area: coin;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  perspective: 1400px;
 }
 
 .how-note {
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 260px;
-  max-width: 260px;
+  width: 240px;
+  max-width: 240px;
   padding-top: 0.85rem;
   transition: transform 0.3s ease;
 }
@@ -623,7 +603,7 @@ footer.starred-zone::before {
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
-  width: 260px;
+  width: 240px;
   aspect-ratio: 1 / 1;
   padding: 1rem 1.05rem 0.9rem;
   overflow: hidden;
@@ -777,36 +757,36 @@ footer.starred-zone::before {
 .how-note-tl {
   grid-area: note-tl;
   align-self: start;
-  justify-self: end;
-  transform: rotate(-13deg);
-  transform-origin: 18% 6%;
+  justify-self: center;
+  transform: rotate(-3deg);
+  transform-origin: 50% 6%;
 }
 .how-note-bl {
   grid-area: note-bl;
-  align-self: end;
-  justify-self: end;
-  transform: rotate(-4deg);
-  transform-origin: 12% 8%;
+  align-self: start;
+  justify-self: center;
+  transform: rotate(2deg);
+  transform-origin: 50% 8%;
 }
 .how-note-tr {
   grid-area: note-tr;
   align-self: start;
-  justify-self: start;
-  transform: rotate(9deg);
+  justify-self: center;
+  transform: rotate(-2deg);
   transform-origin: 50% 5%;
 }
 .how-note-br {
   grid-area: note-br;
-  align-self: end;
-  justify-self: start;
-  transform: rotate(16deg);
-  transform-origin: 52% 7%;
+  align-self: start;
+  justify-self: center;
+  transform: rotate(3deg);
+  transform-origin: 50% 7%;
 }
 
-.how-note-tl:hover { transform: rotate(-11deg) translateY(-5px); }
-.how-note-bl:hover { transform: rotate(-2deg) translateY(-5px); }
-.how-note-tr:hover { transform: rotate(7deg) translateY(-5px); }
-.how-note-br:hover { transform: rotate(14deg) translateY(-5px); }
+.how-note-tl:hover { transform: rotate(-3deg) translateY(-5px); }
+.how-note-bl:hover { transform: rotate(2deg) translateY(-5px); }
+.how-note-tr:hover { transform: rotate(-2deg) translateY(-5px); }
+.how-note-br:hover { transform: rotate(3deg) translateY(-5px); }
 
 .how-note-head {
   padding: 0;
@@ -824,53 +804,6 @@ footer.starred-zone::before {
   font-size: 0.78rem;
   line-height: 1.5;
   flex: 1;
-}
-
-.how-coin {
-  width: min(480px, 94vw);
-  aspect-ratio: 1;
-}
-
-.how-coin-spinner {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transform-style: preserve-3d;
-  transform: rotateX(14deg);
-  filter:
-    drop-shadow(0 28px 50px rgba(0, 0, 0, 0.55))
-    drop-shadow(0 0 70px rgba(231, 172, 8, 0.16));
-}
-
-.how-coin-spinner.is-spinning {
-  animation: coinSpinOnce 2.8s cubic-bezier(0.34, 0.05, 0.18, 1) forwards;
-}
-
-.how-coin-face {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  overflow: hidden;
-  backface-visibility: hidden;
-  box-shadow:
-    inset 0 -14px 28px rgba(0, 0, 0, 0.38),
-    inset 0 12px 22px rgba(254, 237, 139, 0.14);
-}
-
-.how-coin-face img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.how-coin-front { transform: translateZ(14px); }
-.how-coin-back { transform: rotateY(180deg) translateZ(14px); }
-
-@keyframes coinSpinOnce {
-  0%   { transform: rotateX(22deg) rotateY(0deg); }
-  72%  { transform: rotateX(16deg) rotateY(380deg); }
-  100% { transform: rotateX(14deg) rotateY(360deg); }
 }
 
 .how-number {
@@ -903,18 +836,15 @@ footer.starred-zone::before {
 @media (max-width: 980px) {
   .how-orbit {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: auto auto;
     grid-template-areas:
-      "coin coin"
-      "note-tl note-tr"
-      "note-bl note-br";
+      "note-tl note-bl"
+      "note-tr note-br";
     gap: 1.25rem 1rem;
     min-height: auto;
     padding: 0.5rem 0 1.5rem;
     overflow: hidden;
   }
-  .how-orbit-center { padding: 0.25rem 0 1rem; }
-  .how-coin { width: min(340px, 78vw); }
   .how-note {
     width: 100%;
     max-width: none;
@@ -953,7 +883,6 @@ footer.starred-zone::before {
   .how-orbit {
     grid-template-columns: 1fr;
     grid-template-areas:
-      "coin"
       "note-tl"
       "note-tr"
       "note-bl"
@@ -961,7 +890,6 @@ footer.starred-zone::before {
     gap: 1.25rem;
     padding: 0.5rem 0.5rem 1.5rem;
   }
-  .how-coin { width: min(300px, 72vw); }
   .how-note-sheet {
     width: 100%;
     max-width: min(280px, calc(100vw - 3rem));
@@ -1446,10 +1374,10 @@ footer.starred-zone::before {
   gap: 0.6rem;
 }
 .promise-list li {
-  background: rgba(231, 172, 8, 0.04);
+  background: rgba(255, 255, 255, 0.02);
   padding: 0.7rem 0.9rem;
   border-radius: var(--radius-sm);
-  border: 1px solid rgba(231, 172, 8, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.07);
   display: flex;
   align-items: center;
   gap: 0.6rem;
@@ -1733,7 +1661,6 @@ footer.starred-zone::before {
 }
 @media (prefers-reduced-motion: reduce) {
   .dream-track { animation: none; }
-  .how-coin-spinner.is-spinning { animation: none; }
 }
 .final-card {
   padding: 4rem 2rem;
@@ -1763,14 +1690,8 @@ footer.starred-zone::before {
 /* ---------- Footer ---------- */
 .footer {
   padding: 3rem 1.25rem 2rem;
-  border-top: 1px solid rgba(231, 172, 8, 0.12);
 }
 
-footer.starred-zone {
-  position: relative;
-  isolation: isolate;
-  background: transparent;
-}
 .footer-inner {
   max-width: var(--container);
   margin: 0 auto;
