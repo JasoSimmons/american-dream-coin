@@ -327,4 +327,37 @@
       window.scrollTo({ top: y, behavior: "smooth" });
     });
   });
+
+  /* -------------------- 9. Mobile nav menu -------------------- */
+  const navToggle = document.getElementById("nav-toggle");
+  const navLinks = document.getElementById("primary-nav");
+
+  if (navToggle && nav) {
+    const closeMenu = () => {
+      nav.classList.remove("is-menu-open");
+      navToggle.setAttribute("aria-expanded", "false");
+    };
+
+    navToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isOpen = nav.classList.toggle("is-menu-open");
+      navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+
+    if (navLinks) {
+      navLinks.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
+    }
+
+    document.addEventListener("click", (e) => {
+      if (!nav.classList.contains("is-menu-open")) return;
+      if (nav.contains(e.target)) return;
+      closeMenu();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+  }
 })();

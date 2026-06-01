@@ -255,7 +255,75 @@ img, svg { display: block; max-width: 100%; }
   border-radius: 0;
 }
 
-@media (max-width: 880px) { .nav-links { display: none; } }
+/* Hamburger toggle — hidden on desktop, shown on mobile */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid rgba(231, 172, 8, 0.28);
+  border-radius: var(--radius-sm);
+  background: rgba(18, 18, 18, 0.55);
+  flex-shrink: 0;
+}
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--gold);
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+.nav.is-menu-open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav.is-menu-open .nav-toggle span:nth-child(2) { opacity: 0; }
+.nav.is-menu-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 880px) {
+  .nav-toggle { display: flex; }
+
+  .nav.is-menu-open {
+    background: rgba(18, 18, 18, 0.97);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(231, 172, 8, 0.12);
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 0;
+    padding: 0.25rem 1.25rem 0.75rem;
+    background: rgba(18, 18, 18, 0.98);
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    border-bottom: 1px solid rgba(231, 172, 8, 0.15);
+    box-shadow: 0 16px 28px -12px rgba(0, 0, 0, 0.6);
+    transform: translateY(-10px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.22s ease, transform 0.22s ease;
+  }
+  .nav.is-menu-open .nav-links {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .nav-links a {
+    padding: 0.95rem 0.25rem;
+    font-size: 1.02rem;
+    border-bottom: 1px solid rgba(231, 172, 8, 0.08);
+  }
+  .nav-links a:last-child { border-bottom: none; }
+}
 
 /* ---------- Buttons ---------- */
 .cta-primary {
@@ -671,30 +739,6 @@ img, svg { display: block; max-width: 100%; }
   border-radius: 1px;
 }
 
-/* Paperclip — note 02 */
-.how-fastener-paperclip {
-  top: 2px;
-  left: 6px;
-  width: 14px;
-  height: 34px;
-  border: 2.5px solid #b8b8b8;
-  border-radius: 10px 10px 4px 4px;
-  border-bottom: none;
-  transform: rotate(8deg);
-  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.35);
-}
-.how-fastener-paperclip::before {
-  content: "";
-  position: absolute;
-  top: 8px;
-  left: 3px;
-  width: 8px;
-  height: 20px;
-  border: 2px solid #d4d4d4;
-  border-radius: 6px 6px 2px 2px;
-  border-bottom: none;
-}
-
 /* Binder clip — note 03 */
 .how-fastener-clip {
   top: -2px;
@@ -867,7 +911,8 @@ img, svg { display: block; max-width: 100%; }
   }
   .how-note-sheet {
     width: 100%;
-    max-width: min(260px, calc(50vw - 1.5rem));
+    max-width: min(300px, calc(50vw - 1.25rem));
+    aspect-ratio: auto;
     margin: 0 auto;
   }
   .how-note-tl,
@@ -887,17 +932,32 @@ img, svg { display: block; max-width: 100%; }
       "note-tr"
       "note-bl"
       "note-br";
-    gap: 1.25rem;
-    padding: 0.5rem 0.5rem 1.5rem;
+    gap: 0.85rem;
+    padding: 0.25rem 0 1rem;
+  }
+  .how-note {
+    padding-top: 0.5rem;
   }
   .how-note-sheet {
     width: 100%;
-    max-width: min(280px, calc(100vw - 3rem));
+    max-width: min(420px, calc(100vw - 2.5rem));
+    aspect-ratio: auto;
+    gap: 0.45rem;
+    padding: 0.95rem 1.1rem 1rem;
   }
-  .how-note-tl { transform: rotate(-6deg); transform-origin: 18% 6%; }
-  .how-note-bl { transform: rotate(4deg); transform-origin: 12% 8%; }
-  .how-note-tr { transform: rotate(-4deg); transform-origin: 50% 5%; }
-  .how-note-br { transform: rotate(7deg); transform-origin: 52% 7%; }
+  .how-note-tl,
+  .how-note-bl,
+  .how-note-tr,
+  .how-note-br {
+    transform: none;
+    justify-self: center;
+  }
+  .how-note-tl:hover,
+  .how-note-bl:hover,
+  .how-note-tr:hover,
+  .how-note-br:hover {
+    transform: translateY(-3px);
+  }
 }
 
 /* ---------- CHART ---------- */
