@@ -148,9 +148,9 @@
     });
 
     let chartLoaded = false;
-    let currentTf = "hour";
+    let currentTf = "minute";
     let currentAgg = "1";
-    let currentLimit = "240";
+    let currentLimit = "300";
     let reqToken = 0;
 
     const loadCandles = async (resetView) => {
