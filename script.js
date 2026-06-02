@@ -112,6 +112,60 @@
     setInterval(updateMarket, 30000);
   }
 
+  /* -------------------- 3. Live reserve balance -------------------- */
+  const RESERVE_WALLET = "5DKSTQRXn6cQAgfekHaN3XssU8pF8WyKvff8dabXaKXP";
+  const HELIUS_RPC =
+    "https://mainnet.helius-rpc.com/?api-key=3a15a062-a9bb-494a-8ee9-bfe4e7f4909f";
+  const reserveBalanceEl = document.getElementById("reserve-balance-value");
+
+  if (reserveBalanceEl) {
+    const fmtUsd = (n) =>
+      "$" + n.toLocaleString("en-US", { maximumFractionDigits: 2 });
+
+    const fetchSolBalance = async () => {
+      const res = await fetch(HELIUS_RPC, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          jsonrpc: "2.0",
+          id: 1,
+          method: "getBalance",
+          params: [RESERVE_WALLET],
+        }),
+      });
+      if (!res.ok) throw new Error("rpc");
+      const data = await res.json();
+      const lamports = data.result && data.result.value ? data.result.value : 0;
+      return lamports / 1e9;
+    };
+
+    const fetchSolPrice = async () => {
+      const res = await fetch(
+        "https://api.coingecko.com/api/v3/simple/price?ids=solana&vs_currencies=usd"
+      );
+      if (!res.ok) throw new Error("price");
+      const data = await res.json();
+      return data.solana && data.solana.usd ? data.solana.usd : 0;
+    };
+
+    const updateReserve = async () => {
+      try {
+        const [sol, price] = await Promise.all([
+          fetchSolBalance(),
+          fetchSolPrice(),
+        ]);
+        if (sol >= 0 && price > 0) {
+          reserveBalanceEl.textContent = fmtUsd(sol * price);
+        }
+      } catch (e) {
+        /* network/RPC error — keep last value */
+      }
+    };
+
+    updateReserve();
+    setInterval(updateReserve, 60000);
+  }
+
   /* -------------------- 5. Reveal-on-scroll for section cards -------------------- */
   const revealEls = document.querySelectorAll(
     ".how-note, .road-step, .token-card, .index-hero, .index-stat, .index-cta, .chart-card, .final-card"

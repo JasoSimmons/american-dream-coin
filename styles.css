@@ -573,6 +573,12 @@ img, svg { display: block; max-width: 100%; }
   color: var(--text-light);
   font-style: italic;
 }
+.ca-note a {
+  color: var(--gold);
+  font-weight: 600;
+  font-style: normal;
+}
+.ca-note a:hover { color: var(--gold-bright); }
 
 .hero-badges { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 3rem; }
 @media (max-width: 760px) { .hero-badges { grid-template-columns: repeat(2, 1fr); } }
