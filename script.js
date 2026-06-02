@@ -205,7 +205,7 @@
   }
 
   /* -------------------- 3. Live reserve balance -------------------- */
-  const RESERVE_WALLET = "5DKSTQRXn6cQAgfekHaN3XssU8pF8WyKvff8dabXaKXP";
+  const RESERVE_WALLET = "BKcphdKz3t4puYNdr2oZauUZYGHbd179rLj8cvhjRCW6";
   const HELIUS_RPC =
     "https://mainnet.helius-rpc.com/?api-key=3a15a062-a9bb-494a-8ee9-bfe4e7f4909f";
   const reserveBalanceEl = document.getElementById("reserve-balance-value");
