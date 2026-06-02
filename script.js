@@ -148,17 +148,29 @@
     });
 
     let chartLoaded = false;
+    let currentTf = "hour";
+    let currentAgg = "1";
+    let currentLimit = "240";
+    let reqToken = 0;
 
-    const loadCandles = async () => {
+    const loadCandles = async (resetView) => {
+      const myReq = ++reqToken;
       try {
         const res = await fetch(
           "https://api.geckoterminal.com/api/v2/networks/solana/pools/" +
             PAIR_ADDRESS +
-            "/ohlcv/hour?aggregate=1&limit=168",
+            "/ohlcv/" +
+            currentTf +
+            "?aggregate=" +
+            currentAgg +
+            "&limit=" +
+            currentLimit,
           { cache: "no-store" }
         );
         if (!res.ok) throw new Error("ohlcv");
         const json = await res.json();
+        // Ignore stale responses if a newer timeframe was requested
+        if (myReq !== reqToken) return;
         const list =
           json.data && json.data.attributes && json.data.attributes.ohlcv_list;
         if (!Array.isArray(list) || list.length === 0) throw new Error("empty");
@@ -180,7 +192,7 @@
           .sort((a, b) => a.time - b.time);
 
         candleSeries.setData(candles);
-        if (!chartLoaded) {
+        if (!chartLoaded || resetView) {
           chart.timeScale().fitContent();
           chartLoaded = true;
         }
@@ -195,8 +207,21 @@
       }
     };
 
+    // Timeframe toggle buttons
+    const resButtons = document.querySelectorAll(".chart-resolutions .res");
+    resButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        currentTf = btn.getAttribute("data-tf") || "hour";
+        currentAgg = btn.getAttribute("data-agg") || "1";
+        currentLimit = btn.getAttribute("data-limit") || "240";
+        resButtons.forEach((b) => b.classList.remove("is-active"));
+        btn.classList.add("is-active");
+        loadCandles(true);
+      });
+    });
+
     loadCandles();
-    setInterval(loadCandles, 60000);
+    setInterval(() => loadCandles(false), 60000);
   } else if (chartLoadingEl) {
     chartLoadingEl.innerHTML =
       'Chart unavailable — <a href="https://dexscreener.com/solana/' +
