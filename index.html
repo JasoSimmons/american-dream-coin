@@ -23,6 +23,12 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
+    <!-- Warm up connections for the live chart + market data -->
+    <link rel="preconnect" href="https://dexscreener.com" />
+    <link rel="preconnect" href="https://io.dexscreener.com" crossorigin />
+    <link rel="dns-prefetch" href="https://dexscreener.com" />
+    <link rel="dns-prefetch" href="https://io.dexscreener.com" />
+    <link rel="preconnect" href="https://api.dexscreener.com" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -247,7 +253,8 @@
               class="chart-embed-frame"
               title="$DREAM live price chart"
               src="https://dexscreener.com/solana/AnGFTTaFBxri6T85wtaej7C2JzZLRXgrP4KwN4w3AX3z?embed=1&theme=dark&trades=0&info=0"
-              loading="lazy"
+              loading="eager"
+              fetchpriority="high"
               allow="clipboard-write"
             ></iframe>
           </div>
