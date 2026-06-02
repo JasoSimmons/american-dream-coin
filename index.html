@@ -24,11 +24,11 @@
       rel="stylesheet"
     />
     <!-- Warm up connections for the live chart + market data -->
-    <link rel="preconnect" href="https://dexscreener.com" />
-    <link rel="preconnect" href="https://io.dexscreener.com" crossorigin />
-    <link rel="dns-prefetch" href="https://dexscreener.com" />
-    <link rel="dns-prefetch" href="https://io.dexscreener.com" />
+    <link rel="preconnect" href="https://api.geckoterminal.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link rel="preconnect" href="https://api.dexscreener.com" />
+    <link rel="dns-prefetch" href="https://api.geckoterminal.com" />
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -248,15 +248,10 @@
             </div>
           </div>
 
-          <div class="chart-canvas-wrap chart-embed">
-            <iframe
-              class="chart-embed-frame"
-              title="$DREAM live price chart"
-              src="https://dexscreener.com/solana/AnGFTTaFBxri6T85wtaej7C2JzZLRXgrP4KwN4w3AX3z?embed=1&theme=dark&trades=0&info=0"
-              loading="eager"
-              fetchpriority="high"
-              allow="clipboard-write"
-            ></iframe>
+          <div class="chart-canvas-wrap chart-embed" id="dream-chart">
+            <div class="chart-loading" id="chart-loading">
+              <span class="chart-loading-dot"></span> Loading chart…
+            </div>
           </div>
 
           <div class="chart-foot">
@@ -595,6 +590,7 @@
       Contract address copied ★
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js" defer></script>
     <script src="script.js" defer></script>
   </body>
 </html>

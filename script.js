@@ -112,6 +112,98 @@
     setInterval(updateMarket, 30000);
   }
 
+  /* -------------------- 2b. Live price chart (GeckoTerminal) -------------------- */
+  const chartEl = document.getElementById("dream-chart");
+  const chartLoadingEl = document.getElementById("chart-loading");
+  const PAIR_ADDRESS = "AnGFTTaFBxri6T85wtaej7C2JzZLRXgrP4KwN4w3AX3z";
+
+  if (chartEl && window.LightweightCharts) {
+    const chart = window.LightweightCharts.createChart(chartEl, {
+      autoSize: true,
+      layout: {
+        background: { type: "solid", color: "transparent" },
+        textColor: "#9a8f7a",
+        fontFamily: "'JetBrains Mono', monospace",
+      },
+      grid: {
+        vertLines: { color: "rgba(231,172,8,0.06)" },
+        horzLines: { color: "rgba(231,172,8,0.06)" },
+      },
+      rightPriceScale: { borderColor: "rgba(231,172,8,0.15)" },
+      timeScale: {
+        borderColor: "rgba(231,172,8,0.15)",
+        timeVisible: true,
+        secondsVisible: false,
+      },
+      crosshair: { mode: window.LightweightCharts.CrosshairMode.Normal },
+    });
+
+    const candleSeries = chart.addCandlestickSeries({
+      upColor: "#FEED8B",
+      wickUpColor: "#FEED8B",
+      downColor: "#A9791B",
+      wickDownColor: "#A9791B",
+      borderVisible: false,
+      priceFormat: { type: "price", precision: 7, minMove: 0.0000001 },
+    });
+
+    let chartLoaded = false;
+
+    const loadCandles = async () => {
+      try {
+        const res = await fetch(
+          "https://api.geckoterminal.com/api/v2/networks/solana/pools/" +
+            PAIR_ADDRESS +
+            "/ohlcv/hour?aggregate=1&limit=168",
+          { cache: "no-store" }
+        );
+        if (!res.ok) throw new Error("ohlcv");
+        const json = await res.json();
+        const list =
+          json.data && json.data.attributes && json.data.attributes.ohlcv_list;
+        if (!Array.isArray(list) || list.length === 0) throw new Error("empty");
+
+        const seen = {};
+        const candles = list
+          .map((c) => ({
+            time: c[0],
+            open: c[1],
+            high: c[2],
+            low: c[3],
+            close: c[4],
+          }))
+          .filter((c) => {
+            if (seen[c.time]) return false;
+            seen[c.time] = true;
+            return isFinite(c.open) && isFinite(c.close);
+          })
+          .sort((a, b) => a.time - b.time);
+
+        candleSeries.setData(candles);
+        if (!chartLoaded) {
+          chart.timeScale().fitContent();
+          chartLoaded = true;
+        }
+        if (chartLoadingEl) chartLoadingEl.style.display = "none";
+      } catch (e) {
+        if (chartLoadingEl && !chartLoaded) {
+          chartLoadingEl.innerHTML =
+            'Chart unavailable — <a href="https://dexscreener.com/solana/' +
+            PAIR_ADDRESS +
+            '" target="_blank" rel="noopener">view on Dexscreener ↗</a>';
+        }
+      }
+    };
+
+    loadCandles();
+    setInterval(loadCandles, 60000);
+  } else if (chartLoadingEl) {
+    chartLoadingEl.innerHTML =
+      'Chart unavailable — <a href="https://dexscreener.com/solana/' +
+      PAIR_ADDRESS +
+      '" target="_blank" rel="noopener">view on Dexscreener ↗</a>';
+  }
+
   /* -------------------- 3. Live reserve balance -------------------- */
   const RESERVE_WALLET = "5DKSTQRXn6cQAgfekHaN3XssU8pF8WyKvff8dabXaKXP";
   const HELIUS_RPC =

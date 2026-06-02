@@ -1080,7 +1080,7 @@ img, svg { display: block; max-width: 100%; }
   height: 280px;
 }
 
-/* Live Dexscreener embed */
+/* Live price chart */
 .chart-embed {
   height: clamp(380px, 56vw, 560px);
 }
@@ -1089,6 +1089,29 @@ img, svg { display: block; max-width: 100%; }
   width: 100%;
   height: 100%;
   border: 0;
+}
+.chart-loading {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-data);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+.chart-loading a { color: var(--gold); pointer-events: auto; }
+.chart-loading a:hover { color: var(--gold-bright); }
+.chart-loading-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 4px rgba(231, 172, 8, 0.2);
+  animation: dotPulse 1.4s ease-in-out infinite;
 }
 
 .chart-source-link {
