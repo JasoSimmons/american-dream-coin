@@ -1082,7 +1082,7 @@ img, svg { display: block; max-width: 100%; }
 
 /* Live price chart */
 .chart-embed {
-  height: clamp(380px, 56vw, 560px);
+  height: clamp(300px, 42vw, 420px);
 }
 .chart-embed-frame {
   display: block;
