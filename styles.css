@@ -1073,6 +1073,28 @@ img, svg { display: block; max-width: 100%; }
   width: 100%;
   height: 280px;
 }
+
+/* Live Dexscreener embed */
+.chart-embed {
+  height: clamp(380px, 56vw, 560px);
+}
+.chart-embed-frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.chart-source-link {
+  font-family: var(--font-data);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--gold);
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+.chart-source-link:hover { color: var(--gold-bright); }
 .chart-veil {
   position: absolute;
   inset: 0;

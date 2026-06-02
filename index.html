@@ -204,7 +204,7 @@
         </div>
       </section>
 
-      <!-- LIVE CHART (mock) -->
+      <!-- LIVE CHART -->
       <section id="chart" class="section">
         <div class="section-head">
           <span class="eyebrow">★ Market Pulse ★</span>
@@ -215,93 +215,47 @@
           <div class="chart-head">
             <div class="chart-symbol">
               <span class="dot-live"></span>
-              <strong>TOKEN</strong>
-              <span class="chart-pair">/ SOL · Solana</span>
+              <strong>$DREAM</strong>
+              <span class="chart-pair">· Solana</span>
             </div>
-            <div class="chart-resolutions" role="tablist" aria-label="Chart resolution">
-              <button class="res" type="button">5m</button>
-              <button class="res is-active" type="button">1H</button>
-              <button class="res" type="button">4H</button>
-              <button class="res" type="button">1D</button>
-              <button class="res" type="button">1W</button>
-            </div>
+            <a class="chart-source-link" href="https://dexscreener.com/solana/ECYKYuRtgwXPkFu2tfUR8fD18sYz9Y2AyuvsAAnZ5USA" target="_blank" rel="noopener">
+              Live on Dexscreener ↗
+            </a>
           </div>
 
           <div class="chart-stats">
             <div class="stat">
               <span class="stat-label">Price</span>
-              <span class="stat-value" id="stat-price">$0.000—</span>
+              <span class="stat-value" id="stat-price">$—</span>
             </div>
             <div class="stat">
               <span class="stat-label">24h Change</span>
-              <span class="stat-value stat-green">+—%</span>
+              <span class="stat-value stat-green" id="stat-change">—%</span>
             </div>
             <div class="stat">
               <span class="stat-label">24h Volume</span>
-              <span class="stat-value">$—</span>
+              <span class="stat-value" id="stat-volume">$—</span>
             </div>
             <div class="stat">
-              <span class="stat-label">Holders</span>
-              <span class="stat-value">— wallets</span>
+              <span class="stat-label">Liquidity</span>
+              <span class="stat-value" id="stat-liquidity">$—</span>
             </div>
           </div>
 
-          <div class="chart-canvas-wrap">
-            <svg
-              class="chart-canvas"
-              viewBox="0 0 800 280"
-              preserveAspectRatio="none"
-              role="img"
-              aria-label="Mock price chart preview"
-            >
-              <defs>
-                <linearGradient id="area-g" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#E7AC08" stop-opacity="0.30" />
-                  <stop offset="100%" stop-color="#E7AC08" stop-opacity="0" />
-                </linearGradient>
-                <pattern id="chart-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                  <path d="M40 0H0V40" fill="none" stroke="rgba(231, 172, 8, 0.08)" stroke-width="1" />
-                </pattern>
-              </defs>
-
-              <rect width="800" height="280" fill="url(#chart-grid)" />
-
-              <path
-                id="chart-area"
-                d="M0,200 L40,190 L80,205 L120,170 L160,180 L200,150 L240,160 L280,130 L320,145 L360,110 L400,120 L440,90 L480,100 L520,70 L560,85 L600,55 L640,70 L680,40 L720,55 L760,25 L800,40 L800,280 L0,280 Z"
-                fill="url(#area-g)"
-              />
-              <path
-                id="chart-line"
-                d="M0,200 L40,190 L80,205 L120,170 L160,180 L200,150 L240,160 L280,130 L320,145 L360,110 L400,120 L440,90 L480,100 L520,70 L560,85 L600,55 L640,70 L680,40 L720,55 L760,25 L800,40"
-                fill="none"
-                stroke="#E7AC08"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <circle cx="800" cy="40" r="5" fill="#1C1917" stroke="#FEED8B" stroke-width="2">
-                <animate attributeName="r" values="5;9;5" dur="1.6s" repeatCount="indefinite" />
-                <animate attributeName="opacity" values="1;0.4;1" dur="1.6s" repeatCount="indefinite" />
-              </circle>
-            </svg>
-
-            <div class="chart-veil">
-              <div class="chart-veil-stamp">
-                <span class="veil-eyebrow">★ Pre-Launch Preview ★</span>
-                <strong>Live data coming soon.</strong>
-                <a class="cta-primary cta-sm" href="#how">
-                  <span class="cta-shine"></span>
-                  Be Ready for Day 1
-                </a>
-              </div>
-            </div>
+          <div class="chart-canvas-wrap chart-embed">
+            <iframe
+              class="chart-embed-frame"
+              title="$DREAM live price chart"
+              src="https://dexscreener.com/solana/AnGFTTaFBxri6T85wtaej7C2JzZLRXgrP4KwN4w3AX3z?embed=1&theme=dark&trades=0&info=0"
+              loading="lazy"
+              allow="clipboard-write"
+            ></iframe>
           </div>
 
           <div class="chart-foot">
             <div class="chart-foot-cta">
               <a class="cta-secondary cta-sm" href="https://jup.ag" target="_blank" rel="noopener">Swap on Jupiter</a>
-              <a class="cta-ghost cta-sm" href="https://dexscreener.com" target="_blank" rel="noopener">Open Dexscreener ↗</a>
+              <a class="cta-ghost cta-sm" href="https://dexscreener.com/solana/ECYKYuRtgwXPkFu2tfUR8fD18sYz9Y2AyuvsAAnZ5USA" target="_blank" rel="noopener">Open Dexscreener ↗</a>
             </div>
           </div>
         </div>

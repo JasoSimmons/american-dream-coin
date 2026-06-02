@@ -48,24 +48,68 @@
     showToast._t = setTimeout(() => toast.classList.remove("is-show"), 2200);
   }
 
-  /* -------------------- 2. Chart resolution buttons -------------------- */
-  const resBtns = document.querySelectorAll(".chart-resolutions .res");
-  resBtns.forEach((b) =>
-    b.addEventListener("click", () => {
-      resBtns.forEach((x) => x.classList.remove("is-active"));
-      b.classList.add("is-active");
-    })
-  );
-
-  /* -------------------- 3. Mock price ticker -------------------- */
+  /* -------------------- 2. Live market data (Dexscreener) -------------------- */
+  const TOKEN_CA = "ECYKYuRtgwXPkFu2tfUR8fD18sYz9Y2AyuvsAAnZ5USA";
   const priceEl = document.getElementById("stat-price");
-  if (priceEl) {
-    let p = 0.000176;
-    setInterval(() => {
-      const drift = (Math.random() - 0.45) * 0.000008;
-      p = Math.max(0.00001, p + drift);
-      priceEl.textContent = "$" + p.toFixed(7);
-    }, 1600);
+  const changeEl = document.getElementById("stat-change");
+  const volumeEl = document.getElementById("stat-volume");
+  const liquidityEl = document.getElementById("stat-liquidity");
+
+  if (priceEl || changeEl || volumeEl || liquidityEl) {
+    const fmtPrice = (n) => {
+      if (!isFinite(n) || n <= 0) return "$—";
+      if (n >= 1) return "$" + n.toLocaleString("en-US", { maximumFractionDigits: 4 });
+      return "$" + Number(n.toPrecision(4)).toString();
+    };
+    const fmtCompact = (n) => {
+      if (!isFinite(n) || n <= 0) return "$—";
+      return "$" + n.toLocaleString("en-US", { notation: "compact", maximumFractionDigits: 2 });
+    };
+    const fmtPct = (n) => {
+      if (!isFinite(n)) return "—%";
+      return (n > 0 ? "+" : "") + n.toFixed(2) + "%";
+    };
+
+    const pickPair = (pairs) => {
+      if (!Array.isArray(pairs) || pairs.length === 0) return null;
+      return pairs.reduce((best, p) => {
+        const l = (p.liquidity && p.liquidity.usd) || 0;
+        const bl = (best && best.liquidity && best.liquidity.usd) || 0;
+        return l > bl ? p : best;
+      }, pairs[0]);
+    };
+
+    const updateMarket = async () => {
+      try {
+        const res = await fetch(
+          "https://api.dexscreener.com/latest/dex/tokens/" + TOKEN_CA,
+          { cache: "no-store" }
+        );
+        if (!res.ok) return;
+        const data = await res.json();
+        const pair = pickPair(data.pairs);
+        if (!pair) return;
+
+        if (priceEl) priceEl.textContent = fmtPrice(parseFloat(pair.priceUsd));
+        if (changeEl) {
+          const ch = pair.priceChange ? Number(pair.priceChange.h24) : NaN;
+          changeEl.textContent = fmtPct(ch);
+          changeEl.classList.remove("stat-green", "stat-red");
+          if (isFinite(ch)) changeEl.classList.add(ch >= 0 ? "stat-green" : "stat-red");
+        }
+        if (volumeEl) {
+          volumeEl.textContent = fmtCompact(pair.volume ? Number(pair.volume.h24) : NaN);
+        }
+        if (liquidityEl) {
+          liquidityEl.textContent = fmtCompact(pair.liquidity ? Number(pair.liquidity.usd) : NaN);
+        }
+      } catch (e) {
+        /* network/API error — keep last values */
+      }
+    };
+
+    updateMarket();
+    setInterval(updateMarket, 30000);
   }
 
   /* -------------------- 5. Reveal-on-scroll for section cards -------------------- */
