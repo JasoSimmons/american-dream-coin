@@ -209,8 +209,9 @@
   const HELIUS_RPC =
     "https://mainnet.helius-rpc.com/?api-key=3a15a062-a9bb-494a-8ee9-bfe4e7f4909f";
   const reserveBalanceEl = document.getElementById("reserve-balance-value");
+  const reserveSection = document.getElementById("reserve");
 
-  if (reserveBalanceEl) {
+  if (reserveBalanceEl && !(reserveSection && reserveSection.hidden)) {
     const fmtUsd = (n) =>
       "$" + n.toLocaleString("en-US", { maximumFractionDigits: 2 });
 
