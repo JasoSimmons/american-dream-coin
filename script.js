@@ -230,10 +230,10 @@
   }
 
   /* -------------------- 3. Live reserve balance -------------------- */
-  const RESERVE_WALLET = "BKcphdKz3t4puYNdr2oZauUZYGHbd179rLj8cvhjRCW6";
+  const RESERVE_WALLET = "5DKSTQRXn6cQAgfekHaN3XssU8pF8WyKvff8dabXaKXP";
   const HELIUS_RPC =
     "https://mainnet.helius-rpc.com/?api-key=3a15a062-a9bb-494a-8ee9-bfe4e7f4909f";
-  // Fees are collected as USD1 (World Liberty Financial USD, a ~$1 stablecoin)
+  // Treasury balance is the wallet's USD1 holdings (World Liberty Financial USD, a ~$1 stablecoin)
   const USD1_MINT = "USD1ttGY1N17NEEHLmELoaybftRBUSErhqYiQzvEmuB";
   const reserveBalanceEl = document.getElementById("reserve-balance-value");
   const reserveSection = document.getElementById("reserve");
@@ -253,11 +253,6 @@
       return data.result;
     };
 
-    const fetchSolBalance = async () => {
-      const result = await rpcCall("getBalance", [RESERVE_WALLET]);
-      return result && result.value ? result.value / 1e9 : 0;
-    };
-
     const fetchTokenBalance = async (mint) => {
       const result = await rpcCall("getTokenAccountsByOwner", [
         RESERVE_WALLET,
@@ -266,37 +261,32 @@
       ]);
       const accounts = (result && result.value) || [];
       return accounts.reduce((sum, acc) => {
-        const amt =
-          acc.account.data.parsed.info.tokenAmount.uiAmount || 0;
+        const amt = acc.account.data.parsed.info.tokenAmount.uiAmount || 0;
         return sum + amt;
       }, 0);
     };
 
-    const fetchPrices = async () => {
+    const fetchUsd1Price = async () => {
       try {
         const res = await fetch(
-          "https://api.coingecko.com/api/v3/simple/price?ids=solana,usd1-wlfi&vs_currencies=usd"
+          "https://api.coingecko.com/api/v3/simple/price?ids=usd1-wlfi&vs_currencies=usd"
         );
         if (!res.ok) throw new Error("price");
         const data = await res.json();
-        return {
-          sol: (data.solana && data.solana.usd) || 0,
-          // USD1 is a USD stablecoin — fall back to $1 if the feed is unavailable
-          usd1: (data["usd1-wlfi"] && data["usd1-wlfi"].usd) || 1,
-        };
+        // USD1 is a USD stablecoin — fall back to $1 if the feed is unavailable
+        return (data["usd1-wlfi"] && data["usd1-wlfi"].usd) || 1;
       } catch (e) {
-        return { sol: 0, usd1: 1 };
+        return 1;
       }
     };
 
     const updateReserve = async () => {
       try {
-        const [sol, usd1, prices] = await Promise.all([
-          fetchSolBalance(),
+        const [usd1, usd1Price] = await Promise.all([
           fetchTokenBalance(USD1_MINT),
-          fetchPrices(),
+          fetchUsd1Price(),
         ]);
-        const totalUsd = sol * prices.sol + usd1 * prices.usd1;
+        const totalUsd = usd1 * usd1Price;
         if (isFinite(totalUsd) && totalUsd >= 0) {
           reserveBalanceEl.textContent = fmtUsd(totalUsd);
         }
