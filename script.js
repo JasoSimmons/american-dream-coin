@@ -233,6 +233,8 @@
   const RESERVE_WALLET = "BKcphdKz3t4puYNdr2oZauUZYGHbd179rLj8cvhjRCW6";
   const HELIUS_RPC =
     "https://mainnet.helius-rpc.com/?api-key=3a15a062-a9bb-494a-8ee9-bfe4e7f4909f";
+  // Fees are collected as USD1 (World Liberty Financial USD, a ~$1 stablecoin)
+  const USD1_MINT = "USD1ttGY1N17NEEHLmELoaybftRBUSErhqYiQzvEmuB";
   const reserveBalanceEl = document.getElementById("reserve-balance-value");
   const reserveSection = document.getElementById("reserve");
 
@@ -240,40 +242,63 @@
     const fmtUsd = (n) =>
       "$" + n.toLocaleString("en-US", { maximumFractionDigits: 2 });
 
-    const fetchSolBalance = async () => {
+    const rpcCall = async (method, params) => {
       const res = await fetch(HELIUS_RPC, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          jsonrpc: "2.0",
-          id: 1,
-          method: "getBalance",
-          params: [RESERVE_WALLET],
-        }),
+        body: JSON.stringify({ jsonrpc: "2.0", id: 1, method, params }),
       });
       if (!res.ok) throw new Error("rpc");
       const data = await res.json();
-      const lamports = data.result && data.result.value ? data.result.value : 0;
-      return lamports / 1e9;
+      return data.result;
     };
 
-    const fetchSolPrice = async () => {
-      const res = await fetch(
-        "https://api.coingecko.com/api/v3/simple/price?ids=solana&vs_currencies=usd"
-      );
-      if (!res.ok) throw new Error("price");
-      const data = await res.json();
-      return data.solana && data.solana.usd ? data.solana.usd : 0;
+    const fetchSolBalance = async () => {
+      const result = await rpcCall("getBalance", [RESERVE_WALLET]);
+      return result && result.value ? result.value / 1e9 : 0;
+    };
+
+    const fetchTokenBalance = async (mint) => {
+      const result = await rpcCall("getTokenAccountsByOwner", [
+        RESERVE_WALLET,
+        { mint },
+        { encoding: "jsonParsed" },
+      ]);
+      const accounts = (result && result.value) || [];
+      return accounts.reduce((sum, acc) => {
+        const amt =
+          acc.account.data.parsed.info.tokenAmount.uiAmount || 0;
+        return sum + amt;
+      }, 0);
+    };
+
+    const fetchPrices = async () => {
+      try {
+        const res = await fetch(
+          "https://api.coingecko.com/api/v3/simple/price?ids=solana,usd1-wlfi&vs_currencies=usd"
+        );
+        if (!res.ok) throw new Error("price");
+        const data = await res.json();
+        return {
+          sol: (data.solana && data.solana.usd) || 0,
+          // USD1 is a USD stablecoin — fall back to $1 if the feed is unavailable
+          usd1: (data["usd1-wlfi"] && data["usd1-wlfi"].usd) || 1,
+        };
+      } catch (e) {
+        return { sol: 0, usd1: 1 };
+      }
     };
 
     const updateReserve = async () => {
       try {
-        const [sol, price] = await Promise.all([
+        const [sol, usd1, prices] = await Promise.all([
           fetchSolBalance(),
-          fetchSolPrice(),
+          fetchTokenBalance(USD1_MINT),
+          fetchPrices(),
         ]);
-        if (sol >= 0 && price > 0) {
-          reserveBalanceEl.textContent = fmtUsd(sol * price);
+        const totalUsd = sol * prices.sol + usd1 * prices.usd1;
+        if (isFinite(totalUsd) && totalUsd >= 0) {
+          reserveBalanceEl.textContent = fmtUsd(totalUsd);
         }
       } catch (e) {
         /* network/RPC error — keep last value */
